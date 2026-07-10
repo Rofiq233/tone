@@ -1,0 +1,307 @@
+{{ 'section-faq.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.mobile_padding_top}}px;
+    padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+
+  assign s = section.settings
+
+-%} 
+<div class="faq-wrapper color-{{ section.settings.color_schema }} gradient">
+  <div class="page-width  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} section-{{ section.id }}-padding  color-{{ s.color_scheme_content }} gradient">
+    {%- if s.heading != blank -%}
+      <div class="section-header faq-header">
+        <h2 class="{{ s.heading_size }}">{{ s.heading }}</h2>
+        <div class="heading-border small-hide"></div>
+        {%- if s.right_text != blank -%}
+          <div class="section-header-right">
+            {{ s.right_text }}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="faq-wrap {% if  template.suffix == 'faq' %} faq_page {% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+     
+      <div class="faq-column accordion_items">
+        <div class="faq-items">
+          {% for block in section.blocks %}
+            {%- assign b = block.settings -%}
+            {%- if block.type == 'heading' -%}
+              <div class="faq_heading">
+                <h3>{{ b.heading }}</h3>
+                <div class="faq_heading-border"></div>
+              </div>
+            {%- endif -%}
+            {%- if block.type == 'Faq_item' -%}
+              <custom-accordion>
+                <div class="faq-item {% if  forloop.index == 2 %} is-open {% endif %} ">
+                  <div class="faq-item-title">
+                    {%- if b.title != blank -%}
+                      <h4 class="{{ b.title_size }}">{{ b.title }}</h4>
+                    {%- endif -%}
+                    <div class="faq-collapsiable-icon">
+                      <div class="faq-icon-plus">
+                        {% comment %} {{ 'plus.svg' | inline_asset_content }} {% endcomment %}
+                          <svg class="accordion--header__plus" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0.586207" y="0.586207" width="32.8276" height="32.8276" rx="4.10345" stroke="#F3F3F3" stroke-width="1.17241"></rect>
+                            <path d="M18.3464 15.745H23.4483V18.2839H18.3464V23.4483H15.6537V18.2839H10.5518V15.745H15.6537V10.5518H18.3464V15.745Z" fill="#161616"></path>
+                            </svg>
+                      </div>
+                      <div class="faq-icon-minus">
+                        {% comment %} {{ 'crose.svg' | inline_asset_content }} {% endcomment %}
+                           <svg class="accordion--header__minus" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0.586207" y="0.586207" width="32.8276" height="32.8276" rx="4.10345" stroke="#F3F3F3" stroke-width="1.17241"></rect>
+                            <path d="M18.3464 15.7306H23.4483V18.2695H18.3464H15.6537H10.5518V15.7306H15.6537H18.3464Z" fill="#161616"></path>
+                            </svg>
+                      </div>
+                    </div>
+                  </div>
+                  {%- if b.details != blank -%}
+                    <div class="faq-item-content" open="">
+                      <p>{{ b.details }}</p>
+                    </div>
+                  {%- endif -%}
+                </div>
+              </custom-accordion>
+            {%- endif -%}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{ 
+  "name": "Faq's",
+  "tag": "section",
+  "class": "faq",
+  "settings": [
+     {
+      "type": "color_scheme",
+      "id": "color_schema",
+      "label": "Color schema"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+   
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Faq_item",
+      "name": "Faq item",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "select",
+          "id": "title_size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            }
+          ],
+          "default": "h3",
+          "label": "Title size"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "details",
+          "label": "Details"
+        },
+        
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Faq's",
+      "blocks": [
+        {
+          "type": "Faq_item",
+          "settings": {
+            "title": "Will I get confirmation of my order?",
+            "title_size": "h4",
+            "details": "As soon as we receive your order, we'll send out  confirmation to your email address, this just means we've received your  order in our system and we've pre-authorised your payment method ready  for your purchase.",
+         
+          }
+        },
+        {
+          "type": "Faq_item",
+          "settings": {
+            "title": "I placed my order but did not receive a confirmation email. Why?",
+            "title_size": "h4",
+            "details": "As soon as we receive your order, we'll send out  confirmation to your email address, this just means we've received your  order in our system and we've pre-authorised your payment method ready  for your purchase.",
+            
+          }
+        },
+        {
+          "type": "Faq_item",
+          "settings": {
+            "title": "Why do you need my phone number?",
+            "title_size": "h4",
+            "details": "As soon as we receive your order, we'll send out  confirmation to your email address, this just means we've received your  order in our system and we've pre-authorised your payment method ready  for your purchase.",
+            
+          }
+        },
+        {
+          "type": "Faq_item",
+          "settings": {
+            "title": "Is it safe to buy online through your website?",
+            "title_size": "h4",
+            "details": "As soon as we receive your order, we'll send out  confirmation to your email address, this just means we've received your  order in our system and we've pre-authorised your payment method ready  for your purchase.",
+            
+          }
+        },
+        {
+          "type": "Faq_item",
+          "settings": {
+            "title": "Do you deliver outside of the United Kingdom?",
+            "title_size": "h4",
+            "details": "As soon as we receive your order, we'll send out  confirmation to your email address, this just means we've received your  order in our system and we've pre-authorised your payment method ready  for your purchase.",
+            
+          }  
+        }
+      ],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "padding_top": 120,
+        "padding_bottom": 0,
+        "mobile_padding_top": 50,
+        "mobile_padding_bottom": 0
+      }  
+    }
+  ]
+}
+{% endschema %}

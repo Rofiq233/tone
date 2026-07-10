@@ -125,66 +125,71 @@
         "padding_bottom": 36
       }
     },
-    "collapsible_content_MJBVfh": {
-      "type": "collapsible-content",
+    "faq_igGNqB": {
+      "type": "faq",
       "blocks": {
-        "collapsible_row_Nr3niJ": {
-          "type": "collapsible_row",
+        "faq_item_VNy6iG": {
+          "type": "Faq_item",
           "settings": {
-            "heading": "How does the fit compare to a regular dress shirt?",
-            "icon": "none",
-            "row_content": "<p>Standard dress shirts are often boxy or restrictive.<br/><br/>Tone Tec is engineered with a physique-enhancing cut designed to highlight the shoulders and chest while tapering at the waist.<br/><br/>Combined with our 4-way stretch, you get a custom-tailored look with the unrestricted feel of high-end activewear.</p>",
-            "page": ""
+            "title": "Will I get confirmation of my order?",
+            "title_size": "h2",
+            "details": "As soon as we receive your order, we'll send out  confirmation to your email address, this just means we've received your  order in our system and we've pre-authorised your payment method ready  for your purchase.",
+            "color_schema": "scheme-3"
           }
         },
-        "collapsible_row_mfaiga": {
-          "type": "collapsible_row",
+        "faq_item_BMfrNf": {
+          "type": "Faq_item",
           "settings": {
-            "heading": "How does the fit compare to a regular dress shirt?",
-            "icon": "none",
-            "row_content": "<p>Standard dress shirts are often boxy or restrictive.<br/><br/>Tone Tec is engineered with a physique-enhancing cut designed to highlight the shoulders and chest while tapering at the waist.<br/><br/>Combined with our 4-way stretch, you get a custom-tailored look with the unrestricted feel of high-end activewear.</p>",
-            "page": ""
+            "title": "I placed my order but did not receive a confirmation email. Why?",
+            "title_size": "h2",
+            "details": "As soon as we receive your order, we'll send out  confirmation to your email address, this just means we've received your  order in our system and we've pre-authorised your payment method ready  for your purchase.",
+            "color_schema": "scheme-3"
           }
         },
-        "collapsible_row_GgPBhw": {
-          "type": "collapsible_row",
+        "faq_item_JT7gNt": {
+          "type": "Faq_item",
           "settings": {
-            "heading": "How does the fit compare to a regular dress shirt?",
-            "icon": "none",
-            "row_content": "<p>Standard dress shirts are often boxy or restrictive.<br/><br/>Tone Tec is engineered with a physique-enhancing cut designed to highlight the shoulders and chest while tapering at the waist.<br/><br/>Combined with our 4-way stretch, you get a custom-tailored look with the unrestricted feel of high-end activewear.</p>",
-            "page": ""
+            "title": "Why do you need my phone number?",
+            "title_size": "h2",
+            "details": "As soon as we receive your order, we'll send out  confirmation to your email address, this just means we've received your  order in our system and we've pre-authorised your payment method ready  for your purchase.",
+            "color_schema": "scheme-3"
           }
         },
-        "collapsible_row_QXrTrR": {
-          "type": "collapsible_row",
+        "faq_item_nNwPCr": {
+          "type": "Faq_item",
           "settings": {
-            "heading": "How does the fit compare to a regular dress shirt?",
-            "icon": "none",
-            "row_content": "<p>Standard dress shirts are often boxy or restrictive.<br/><br/>Tone Tec is engineered with a physique-enhancing cut designed to highlight the shoulders and chest while tapering at the waist.<br/><br/>Combined with our 4-way stretch, you get a custom-tailored look with the unrestricted feel of high-end activewear.</p>",
-            "page": ""
+            "title": "Is it safe to buy online through your website?",
+            "title_size": "h2",
+            "details": "As soon as we receive your order, we'll send out  confirmation to your email address, this just means we've received your  order in our system and we've pre-authorised your payment method ready  for your purchase.",
+            "color_schema": "scheme-3"
+          }
+        },
+        "faq_item_RJthJf": {
+          "type": "Faq_item",
+          "settings": {
+            "title": "Do you deliver outside of the United Kingdom?",
+            "title_size": "h2",
+            "details": "As soon as we receive your order, we'll send out  confirmation to your email address, this just means we've received your  order in our system and we've pre-authorised your payment method ready  for your purchase.",
+            "color_schema": "scheme-3"
           }
         }
       },
       "block_order": [
-        "collapsible_row_Nr3niJ",
-        "collapsible_row_mfaiga",
-        "collapsible_row_GgPBhw",
-        "collapsible_row_QXrTrR"
+        "faq_item_VNy6iG",
+        "faq_item_BMfrNf",
+        "faq_item_JT7gNt",
+        "faq_item_nNwPCr",
+        "faq_item_RJthJf"
       ],
-      "name": "t:sections.collapsible_content.presets.name",
+      "name": "Faq's",
       "settings": {
-        "caption": "FAQ",
-        "heading": "sleeveless-knit-pants-set-1",
-        "heading_size": "h0",
-        "heading_alignment": "left",
-        "layout": "none",
-        "container_color_scheme": "",
-        "color_scheme": "scheme-2",
-        "open_first_collapsible_row": false,
-        "image_ratio": "adapt",
-        "desktop_layout": "image_second",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "color_schema": "scheme-2",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "mobile_padding_top": 50,
+        "mobile_padding_bottom": 50
       }
     }
   },
@@ -192,6 +197,6 @@
     "image_banner",
     "featured_collection",
     "collection_list_TpHJhQ",
-    "collapsible_content_MJBVfh"
+    "faq_igGNqB"
   ]
 }
