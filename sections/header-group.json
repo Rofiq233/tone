@@ -18,6 +18,7 @@
           "type": "announcement",
           "settings": {
             "text": "⚡️ Free Shipping on All Orders",
+            "text_transform": "text_uppercase",
             "link": ""
           }
         }
@@ -37,16 +38,38 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "mega_menu_image_HyPNUB": {
+          "type": "Mega_menu_image",
+          "settings": {
+            "image": "shopify://shop_images/the-riviera-setoracle-gifts-5495437.png",
+            "title": "Bestsellers",
+            "url": "shopify://collections/chino-shorts"
+          }
+        },
+        "mega_menu_image_jgm3dY": {
+          "type": "Mega_menu_image",
+          "settings": {
+            "image": "shopify://shop_images/the-riviera-setoracle-gifts-8848279.png",
+            "title": "New Arrivals",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_image_HyPNUB",
+        "mega_menu_image_jgm3dY"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
-        "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
-        "sticky_header_type": "on-scroll-up",
+        "menu": "menu-new",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "always",
         "show_line_separator": true,
-        "color_scheme": "scheme-1",
-        "menu_color_scheme": "scheme-1",
-        "enable_country_selector": true,
+        "color_scheme": "scheme-2",
+        "menu_color_scheme": "scheme-2",
+        "enable_country_selector": false,
         "enable_language_selector": true,
         "enable_customer_avatar": true,
         "margin_bottom": 0,

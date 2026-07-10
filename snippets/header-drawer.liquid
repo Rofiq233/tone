@@ -20,6 +20,40 @@
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__navigation-container">
           <nav class="menu-drawer__navigation">
+              
+
+             <div class="mega_menu-image-wrap">
+                    {% for block in section.blocks %}
+                      {%- assign block_settings = block.settings -%}
+  
+                      <a href="{{ block_settings.url }}" class="mega_image-wrap">
+                        <div class="mega_image">
+                          {%- if block_settings.image != blank -%}
+                            {{ block_settings.image
+                             | image_url: width: 600
+                             | image_tag:
+                               loading: 'lazy',
+                               widths: '200,300,400,500,600',
+                               sizes: '50vw',
+                               alt: block_settings.image.alt
+                           }}
+                            {%  else %} 
+                            {{ 'collection-apparel-2' | placeholder_svg_tag }}
+                          {%- endif -%}
+                        </div>
+                        <div class="mega_menu-content">
+                          <h4>{{ block_settings.title }}</h4>
+                        </div>
+                      </a>
+                      
+                    {% endfor %}
+
+                  </div>
+ 
+
+
+
+
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
               {%- for link in section.settings.menu.links -%}
                 <li>
@@ -136,7 +170,7 @@
             </ul>
           </nav>
           <div class="menu-drawer__utility-links">
-            {%- if shop.customer_accounts_enabled -%}
+            {% comment %} {%- if shop.customer_accounts_enabled -%}
               <a
                 href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
                 class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide"
@@ -165,8 +199,109 @@
                   endif
                 -%}
               </a>
-            {%- endif -%}
-            {%- if localization.available_countries or localization.available_languages -%}
+            {%- endif -%} {% endcomment %}
+            {% comment %} <details-modal class="header__search">
+  <details>
+    <summary
+      class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle"
+      aria-haspopup="dialog"
+      aria-label="{{ 'general.search.search' | t }}"
+    >
+      <span>
+        <span class="svg-wrapper">
+          {% comment %} {{- 'icon-search.svg' | inline_asset_content -}} {% endcomment %}
+           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M28 14C28 21.732 21.732 28 14 28C6.26802 28 0 21.732 0 14C0 6.26802 6.26802 0 14 0C21.732 0 28 6.26802 28 14ZM13 9.25C10.9289 9.25 9.25 10.9289 9.25 13C9.25 15.0711 10.9289 16.75 13 16.75C15.0711 16.75 16.75 15.0711 16.75 13C16.75 10.9289 15.0711 9.25 13 9.25ZM6.75 13C6.75 9.54822 9.54822 6.75 13 6.75C16.4518 6.75 19.25 9.54822 19.25 13C19.25 14.2739 18.8689 15.4587 18.2145 16.4467L20.8838 19.1161C21.372 19.6043 21.372 20.3958 20.8838 20.8838C20.3958 21.372 19.6043 21.372 19.1161 20.8838L16.4467 18.2145C15.4587 18.8689 14.2739 19.25 13 19.25C9.54822 19.25 6.75 16.4518 6.75 13Z" fill="black"></path>
+            </svg>
+        </span>
+        <span class="svg-wrapper header__icon-close">
+          {{- 'icon-close.svg' | inline_asset_content -}}
+        </span>
+      </span>
+    </summary>
+    <div
+      class="search-modal modal__content gradient"
+      role="dialog"
+      aria-modal="true"
+      aria-label="{{ 'general.search.search' | t }}"
+    >
+      <div class="modal-overlay"></div>
+      <div
+        class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}"
+        tabindex="-1"
+      >
+        {%- if settings.predictive_search_enabled -%}
+          <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
+        {%- else -%}
+          <search-form class="search-modal__form">
+        {%- endif -%}
+        <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+          <div class="field">
+            <input
+              class="search__input field__input"
+              id="{{ input_id }}"
+              type="search"
+              name="q"
+              value="{{ search.terms | escape }}"
+              placeholder="{{ 'general.search.search' | t }}"
+              {%- if settings.predictive_search_enabled -%}
+                role="combobox"
+                aria-expanded="false"
+                aria-owns="predictive-search-results"
+                aria-controls="predictive-search-results"
+                aria-haspopup="listbox"
+                aria-autocomplete="list"
+                autocorrect="off"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false"
+              {%- endif -%}
+            >
+            <label class="field__label" for="{{ input_id }}">{{ 'general.search.search' | t }}</label>
+            <input type="hidden" name="options[prefix]" value="last">
+            <button
+              type="reset"
+              class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}"
+              aria-label="{{ 'general.search.reset' | t }}"
+            >
+              <span class="svg-wrapper">
+                {{- 'icon-reset.svg' | inline_asset_content -}}
+              </span>
+            </button>
+            <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
+              <span class="svg-wrapper">
+                {{- 'icon-search.svg' | inline_asset_content -}}
+              </span>
+            </button>
+          </div>
+
+          {%- if settings.predictive_search_enabled -%}
+            <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+              {%- render 'loading-spinner', class: 'predictive-search__loading-state' -%}
+            </div>
+
+            <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+          {%- endif -%}
+        </form>
+        {%- if settings.predictive_search_enabled -%}
+          </predictive-search>
+        {%- else -%}
+          </search-form>
+        {%- endif -%}
+        <button
+          type="button"
+          class="search-modal__close-button modal__close-button link link--text focus-inset"
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          <span class="svg-wrapper">
+            {{- 'icon-close.svg' | inline_asset_content -}}
+          </span>
+        </button>
+      </div>
+    </div>
+  </details>
+</details-modal> {% endcomment %}
+            {% comment %} {%- if localization.available_countries or localization.available_languages -%}
               <div class="menu-drawer__localization header-localization">
                 {%- if localization.available_countries and localization.available_countries.size > 1 -%}
                   <localization-form>
@@ -194,7 +329,7 @@
                   </localization-form>
                 {%- endif -%}
               </div>
-            {%- endif -%}
+            {%- endif -%} {% endcomment %}
             <ul class="list list-social list-unstyled" role="list">
               {%- if settings.social_twitter_link != blank -%}
                 <li class="list-social__item">

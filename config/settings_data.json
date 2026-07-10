@@ -14,7 +14,7 @@
     "heading_scale": 100,
     "type_body_font": "sans_serif_n4",
     "body_scale": 100,
-    "page_width": 1200,
+    "page_width": 1500,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 8,
@@ -121,11 +121,11 @@
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
     "currency_code_enabled": true,
-    "cart_type": "notification",
+    "cart_type": "drawer",
     "show_vendor": false,
     "show_cart_note": false,
-    "cart_drawer_collection": "",
-    "cart_color_scheme": "scheme-1",
+    "cart_drawer_collection": "top-selling",
+    "cart_color_scheme": "scheme-2",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
@@ -146,7 +146,7 @@
         "settings": {
           "background": "#161616",
           "background_gradient": "",
-          "text": "#FFFFFF",
+          "text": "#ffffff",
           "button": "#121212",
           "button_label": "#ffffff",
           "secondary_button_label": "#121212",
@@ -155,9 +155,9 @@
       },
       "scheme-2": {
         "settings": {
-          "background": "#f3f3f3",
+          "background": "#ffffff",
           "background_gradient": "",
-          "text": "#121212",
+          "text": "#000000",
           "button": "#121212",
           "button_label": "#f3f3f3",
           "secondary_button_label": "#121212",

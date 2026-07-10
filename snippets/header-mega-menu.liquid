@@ -27,16 +27,17 @@
               </summary>
               <div
                 id="MegaMenu-Content-{{ forloop.index }}"
-                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                class="mega-menu__content mega_menu-wrapper  motion-reduce global-settings-popup"
                 tabindex="-1"
               >
                 <ul
-                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                  class="mega-menu__list color-{{ section.settings.menu_color_scheme }} gradient page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
                   role="list"
                 >
+                <div class="mega_menu-list">
                   {%- for childlink in link.links -%}
                     <li>
-                      <a
+                      {% comment %} <a
                         id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                         href="{{ childlink.url }}"
                         class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
@@ -44,8 +45,8 @@
                           aria-current="page"
                         {% endif %}
                       >
-                        {{ childlink.title | escape }}
-                      </a>
+                        {% comment %} {{ childlink.title | escape }} {% endcomment %}
+                      </a> {% endcomment %}
                       {%- if childlink.links != blank -%}
                         <ul class="list-unstyled" role="list">
                           {%- for grandchildlink in childlink.links -%}
@@ -66,8 +67,38 @@
                       {%- endif -%}
                     </li>
                   {%- endfor -%}
-                </ul>
-              </div>
+
+                </div>
+                  <div class="mega_menu-image-wrap">
+                    {% for block in section.blocks %}
+                      {%- assign block_settings = block.settings -%}
+  
+                      <a href="#" class="mega_image-wrap">
+                        <div class="mega_image">
+                          {%- if block_settings.image != blank -%}
+                            {{ block_settings.image
+                             | image_url: width: 600
+                             | image_tag:
+                               loading: 'lazy',
+                               widths: '200,300,400,500,600',
+                               sizes: '50vw',
+                               alt: block_settings.image.alt
+                           }}
+                            {%  else %} 
+                            {{ 'collection-apparel-2' | placeholder_svg_tag }}
+                          {%- endif -%}
+                        </div>
+                        <div class="mega_menu-content">
+                          <h4>{{ block_settings.title }}</h4>
+                        </div>
+                      </a>
+                      
+                    {% endfor %}
+
+                  </div>
+                  </ul>
+                  
+                  </div>
             </details>
           </header-menu>
         {%- else -%}
