@@ -24,7 +24,7 @@
           "settings": {
             "button_label_1": "Shop all",
             "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
+            "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
@@ -37,19 +37,20 @@
       ],
       "settings": {
         "image_overlay_opacity": 40,
-        "image_height": "large",
+        "image_height": "adapt",
         "image_behavior": "none",
         "desktop_content_position": "top-center",
         "desktop_content_alignment": "left",
         "show_text_box": false,
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-1",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "left",
-        "show_text_below": false
+        "show_text_below": true
       }
     },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "collection": "all",
         "products_to_show": 8,
@@ -75,10 +76,122 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "collection_list_TpHJhQ": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_9zKPUc": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "active-shorts"
+          }
+        },
+        "featured_collection_GJffWA": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "chino-shorts"
+          }
+        },
+        "featured_collection_ynWwaw": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "linen-shorts"
+          }
+        },
+        "featured_collection_qAxnKt": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "top-selling"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_9zKPUc",
+        "featured_collection_GJffWA",
+        "featured_collection_ynWwaw",
+        "featured_collection_qAxnKt"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Top Collections",
+        "heading_size": "h1",
+        "image_ratio": "portrait",
+        "columns_desktop": 4,
+        "color_scheme": "scheme-2",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_MJBVfh": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_Nr3niJ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How does the fit compare to a regular dress shirt?",
+            "icon": "none",
+            "row_content": "<p>Standard dress shirts are often boxy or restrictive.<br/><br/>Tone Tec is engineered with a physique-enhancing cut designed to highlight the shoulders and chest while tapering at the waist.<br/><br/>Combined with our 4-way stretch, you get a custom-tailored look with the unrestricted feel of high-end activewear.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_mfaiga": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How does the fit compare to a regular dress shirt?",
+            "icon": "none",
+            "row_content": "<p>Standard dress shirts are often boxy or restrictive.<br/><br/>Tone Tec is engineered with a physique-enhancing cut designed to highlight the shoulders and chest while tapering at the waist.<br/><br/>Combined with our 4-way stretch, you get a custom-tailored look with the unrestricted feel of high-end activewear.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_GgPBhw": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How does the fit compare to a regular dress shirt?",
+            "icon": "none",
+            "row_content": "<p>Standard dress shirts are often boxy or restrictive.<br/><br/>Tone Tec is engineered with a physique-enhancing cut designed to highlight the shoulders and chest while tapering at the waist.<br/><br/>Combined with our 4-way stretch, you get a custom-tailored look with the unrestricted feel of high-end activewear.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_QXrTrR": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How does the fit compare to a regular dress shirt?",
+            "icon": "none",
+            "row_content": "<p>Standard dress shirts are often boxy or restrictive.<br/><br/>Tone Tec is engineered with a physique-enhancing cut designed to highlight the shoulders and chest while tapering at the waist.<br/><br/>Combined with our 4-way stretch, you get a custom-tailored look with the unrestricted feel of high-end activewear.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_Nr3niJ",
+        "collapsible_row_mfaiga",
+        "collapsible_row_GgPBhw",
+        "collapsible_row_QXrTrR"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "FAQ",
+        "heading": "sleeveless-knit-pants-set-1",
+        "heading_size": "h0",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "scheme-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "collection_list_TpHJhQ",
+    "collapsible_content_MJBVfh"
   ]
 }

@@ -1,0 +1,42 @@
+
+
+{%- liquid
+  assign section_settings =  section.settings
+-%}
+
+<div class="hero-slider-wrapper color-{{ section_settings.color_scheme }} gradient">
+    <div class="hero_slider-right">
+        
+    </div>
+    <div class="page-width">
+        <div class="hero_slider-left">
+           <h3></h3>
+           
+        </div>
+    </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Hero",
+    "tag": "section",
+    "class": "hero",
+    "settings": [
+      {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },  
+    ],
+    "presets": [
+      {
+        "name": "Hero",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

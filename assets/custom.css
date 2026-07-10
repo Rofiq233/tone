@@ -32,9 +32,14 @@
      font-size: 20px;
      font-weight: 500;
      text-transform: capitalize;
-     color: rgba(var(--color-foreground))
+     color: rgba(var(--color-foreground));
+padding: 0;
  }
-
+ 
+ .header__inline-menu .list-unstyled a{
+    padding: .4rem 0;
+ }
+   
  .header__menu-item:hover span {}
 
  .mega-menu__list {
@@ -129,6 +134,11 @@
      z-index: 9;
  }
 
+ summary.list-menu__item {
+     padding-top: 0;
+     padding-left: 0;
+     padding-bottom: 0;
+ }
 
 
  /* header css end here  */
