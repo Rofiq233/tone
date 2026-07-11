@@ -1,19 +1,57 @@
 
 
+{{ 'section-hero.css' |  asset_url |  stylesheet_tag }}
+
 {%- liquid
   assign section_settings =  section.settings
 -%}
 
 <div class="hero-slider-wrapper color-{{ section_settings.color_scheme }} gradient">
     <div class="hero_slider-right">
-        
+        {% render 'responsive-picture',
+            desktop_image: section_settings.desktop_image,
+            mobile_image: section_settings.mobile_image,
+            loading: 'eager',
+            fetchpriority: 'high',
+            sizes: '100vw',
+            class: 'banner__image',
+            placeholder:"hero-apparel-2"
+            %}
     </div>
     <div class="page-width">
         <div class="hero_slider-left">
-           <h3></h3>
-           
-        </div>
-    </div>
+             <div class="hero_slider-content">
+               {%- if section_settings.title != blank -%}
+                 <h2 class="{{ section_settings.heading_size }}">{{ section_settings.title }}</h2>
+               {%- endif -%}
+               {%- if section_settings.text != blank -%}
+                 <p>{{ section_settings.text }}</p>
+               {%- endif -%}
+               {%- if section_settings.btn != blank -%}
+                 <a href="{{ section_settings.url }}" class="button button-primary">{{ section_settings.btn }}</a>
+               {%- endif -%}
+
+             </div>
+             <div class="hero_slider-items">
+              {% for block in section.blocks %}
+                {%- assign block_settings = block.settings -%}
+                <a href="" class="hero_slider-item">
+                  <div class="hero_slider-item-img">
+                      {{ block_settings.img
+                    | image_url: width: 300
+                    | image_tag:
+                      loading: 'eager',
+                      widths: '200,300',
+                      sizes: '50vw',
+                      alt: block_settings.img.alt
+                  }}
+                  </div>
+                  <h4>{{ block_settings.title }}</h4>
+                </a>
+                
+              {% endfor %}
+             </div>
+       </div>
 </div>
 
 
@@ -25,11 +63,96 @@
     "class": "hero",
     "settings": [
       {
+        "type": "image_picker",
+        "id": "desktop_image",
+        "label": "Desktop image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile image"
+      },
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+      {
+        "type": "inline_richtext",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type": "text",
+        "id": "btn",
+        "label": "Button text"
+      },
+      {
+        "type": "url",
+        "id": "url",
+        "label": "Url"
+      },
+      {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
     },  
+    ],
+    "blocks": [
+      {
+        "name": "Item",
+        "type": "Item",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Select image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Url"
+          }
+        ]
+      }
     ],
     "presets": [
       {
