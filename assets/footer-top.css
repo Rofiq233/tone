@@ -1,0 +1,28 @@
+.footer_top_items {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.footer-top_text h1 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.list-social__link .svg-wrapper {
+    width: 30px;
+    height: 30px;
+}
+
+@media(max-width:768px){
+    .footer_top_items{
+        flex-direction: column;
+        gap: 0;
+    }
+    .footer-block__details-content{
+        margin: 0;
+        margin-bottom: 2rem !important;
+    }
+    
+}

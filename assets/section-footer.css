@@ -28,8 +28,8 @@
 
   .footer__content-top {
     padding-bottom: 3rem;
-    padding-left: calc(4rem / var(--font-body-scale));
-    padding-right: calc(4rem / var(--font-body-scale));
+    /* padding-left: calc(4rem / var(--font-body-scale));
+    padding-right: calc(4rem / var(--font-body-scale)); */
   }
 }
 
@@ -505,4 +505,38 @@
       padding-left: 3rem;
     }
   }
+}
+
+
+
+
+
+.footer-block__brand-info p{
+  margin: 0;
+}
+
+.footer_sub-text{
+    color: #ffffff80;
+    font-family: Helvetica Now Display;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: .14px;
+
+}
+
+.footer__blocks-wrapper a,
+.footer__blocks-wrapper p,
+.footer__blocks-wrapper li,
+.footer-block__details-content .list-menu__item--link, .copyright__content a{
+  color: rgba(var(--color-foreground), 1);
+}
+
+.footer-subscription_btn{
+  margin-top: 10px;
+  width: 100%;
+}
+.footer-block__newsletter{
+  text-align: left;
 }

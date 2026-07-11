@@ -18,7 +18,7 @@
   assign s = section.settings
 
 -%} 
-<div class="faq-wrapper color-{{ section.settings.color_schema }} gradient">
+<div class="faq-wrapper color-{{ section.settings.color_schema }} gradient section-{{ section.id }}-padding">
   <div class="page-width  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} section-{{ section.id }}-padding  color-{{ s.color_scheme_content }} gradient">
     {%- if s.heading != blank -%}
       <div class="section-header faq-header">

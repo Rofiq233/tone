@@ -248,6 +248,20 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   left: 0;
   z-index: 2;
 }
+body{
+  font-size: 1.8rem;
+  color: rgba(var(--color-foreground), 1);
+}
+
+
+@media(max-width:768px){
+  body{
+    font-size: 1.6rem;
+  }
+}
+
+
+
 
 ::selection {
   background-color: rgba(var(--color-foreground), 0.2);
