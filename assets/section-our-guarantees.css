@@ -40,11 +40,25 @@
     letter-spacing: .18px;
     text-transform: capitalize;
     margin: 0;
+     white-space: normal;
+    word-break: break-word;
 
 }
 
 
-/* new css  */
+@media(max-width:768px){
+    .benifit__items{
+        align-items: start;
+    }
+ .benifit__item-text{
+    flex-direction: column;
+ }   
+ .benifit__item-text p{
+    max-width: 70px;
+    font-size: 13px;
+    letter-spacing: .13px;
+ }   
+}
 
 
 /* benifit section end here */
