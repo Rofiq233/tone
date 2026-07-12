@@ -1,0 +1,149 @@
+
+{{ "section-our-guarantees.css" |  asset_url |  stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.mobile_padding_top}}px;
+    padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+ {%- liquid
+   assign section_settings = section.settings
+ -%}
+
+<div class="guarantees-wrapper color-{{ section_settings.color_schema }} gradient section-{{ section.id }}-padding">
+    <div class="page-width">
+          <div class="benifit__wrapper">
+                    <div class="benifit__items">
+                        {% for block in section.blocks %}
+                            {%- assign block_settings = block.settings -%}
+
+ 
+                            <div class="benifit__item">
+                                <div class="benifit__item-text">
+                                    <div class="benifit__icon" style="max-width: {{ block_settings.max_width |  append: 'px' }};">
+                                         {% render 'image',
+                                            image: block_settings.img,
+                                            sizes: '100px',
+                                              width: 100,
+                                            widths: '32,64,80,90,100',
+                                            placeholder: 'detailed-apparel-1'
+                                            %}
+                                    </div>
+                                    <p>{{ block_settings.title }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+    </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Our guarantees",
+  "tag": "section",
+  "class": "guarantees",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_schema",
+      "label": "Color schema"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+        "type": "Item",
+        "name":"Item",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "img",
+                "label": "Select image"
+            },
+            {
+                "type": "range",
+                "id": "max_width",
+                "label": "Max width",
+                "step": 1,
+                "max": 100,
+                "min": 32,
+                "unit": "px",
+                "default":32
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            }
+        ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our guarantees",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

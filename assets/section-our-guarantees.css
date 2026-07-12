@@ -1,0 +1,50 @@
+/* benifit section start here */
+
+.benifit__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+    align-items: center;
+}
+
+.benifit__item {
+    display: flex;
+    justify-content: center;
+}
+
+.benifit__inner {
+    padding: 29px 0 29px 0;
+}
+
+.benifit__item-text {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.benifit__icon img,
+.benifit__icon svg {
+    width: 100%;
+    height: auto;
+}
+
+.benifit__icon {
+    line-height: 0;
+}
+
+.benifit__item p {
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 22px;
+    letter-spacing: .18px;
+    text-transform: capitalize;
+    margin: 0;
+
+}
+
+
+/* new css  */
+
+
+/* benifit section end here */

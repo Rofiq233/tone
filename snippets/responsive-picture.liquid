@@ -1,3 +1,8 @@
+
+
+
+
+
 {% liquid
   assign desktop = desktop_image
   assign mobile = mobile_image
@@ -28,7 +33,7 @@
 
 <picture>
 
-  {% if mobile != blank and mobile != desktop %}
+  {% if mobile != blank  %}
     <source
       media="(max-width:749px)"
       srcset="

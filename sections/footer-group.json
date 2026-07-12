@@ -54,14 +54,14 @@
           "type": "link_list",
           "settings": {
             "heading": "Quick links",
-            "menu": "footer"
+            "menu": "footer-menu"
           }
         },
         "link_list_jgTCya": {
           "type": "link_list",
           "settings": {
             "heading": "Quick links",
-            "menu": "footer"
+            "menu": "customer-support"
           }
         },
         "brand_information_jW84FB": {

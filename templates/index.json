@@ -63,6 +63,7 @@
       "name": "Hero",
       "settings": {
         "desktop_image": "shopify://shop_images/the-riviera-setoracle-gifts-9217231.png",
+        "mobile_image": "shopify://shop_images/og-elite-shadesoracle-gifts-1850728.png",
         "title": "The Form-Fitting Executive Shirt",
         "heading_size": "h0",
         "text": "A premium blend of 4-way stretch fabric that delivers a sharp, professional silhouette.",
@@ -138,6 +139,48 @@
         "swipe_on_mobile": false,
         "padding_top": 44,
         "padding_bottom": 36
+      }
+    },
+    "our_guarantees_K9bU84": {
+      "type": "our-guarantees",
+      "blocks": {
+        "item_K4Pd96": {
+          "type": "Item",
+          "settings": {
+            "img": "shopify://shop_images/Shipment.svg",
+            "max_width": 32,
+            "title": "Worldwide Shipping"
+          }
+        },
+        "item_93xRqR": {
+          "type": "Item",
+          "settings": {
+            "img": "shopify://shop_images/Us-United.svg",
+            "max_width": 32,
+            "title": "Based in USA"
+          }
+        },
+        "item_tEQkU8": {
+          "type": "Item",
+          "settings": {
+            "img": "shopify://shop_images/Vector.svg",
+            "max_width": 100,
+            "title": "14 day guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "item_K4Pd96",
+        "item_93xRqR",
+        "item_tEQkU8"
+      ],
+      "name": "Our guarantees",
+      "settings": {
+        "color_schema": "scheme-3",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
       }
     },
     "collection_list_TpHJhQ": {
@@ -255,6 +298,7 @@
     "hero_HXqL8f",
     "image_banner",
     "featured_collection",
+    "our_guarantees_K9bU84",
     "collection_list_TpHJhQ",
     "faq_igGNqB"
   ]

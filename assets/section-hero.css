@@ -84,6 +84,7 @@
 
     .hero_slider-items {
         gap: 14px;
+        margin-top: 40px;
     }
 
     .hero_slider-item {
@@ -121,11 +122,10 @@
 @media(max-width:768px) {
 
 
-
-    .hero_slider-item-img {
-        width: 42px;
-        height: 42px;
-    }
+.hero_slider-item-img {
+    width: 60px;
+    height: 60px;
+}
     .hero_slider-content .button{
         font-size: 16px;
     }
