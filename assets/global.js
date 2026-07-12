@@ -1086,39 +1086,39 @@ class VariantSelects extends HTMLElement {
         },
       });
     });
-    
-    
-    const mediaId=this.selectedVariant.featured_media.id;
-    const slide=document.querySelector(
-`[data-media-id="${mediaId}"]`
-);
 
-if(!slide) return;
 
-productSwiper.slideToLoop(
-    Number(slide.dataset.index)
-);
+    const mediaId = this.selectedVariant.featured_media.id;
+    const slide = document.querySelector(
+      `[data-media-id="${mediaId}"]`
+    );
+
+    if (!slide) return;
+
+    productSwiper.slideToLoop(
+      Number(slide.dataset.index)
+    );
   }
 
 
 
 
-get variantData() {
-  this._variantData =
-    this._variantData ||
-    JSON.parse(this.querySelector('[data-product-variants]').textContent);
+  get variantData() {
+    this._variantData =
+      this._variantData ||
+      JSON.parse(this.querySelector('[data-product-variants]').textContent);
 
-  return this._variantData;
-}
+    return this._variantData;
+  }
 
 
-get selectedVariant() {
-  return this.variantData.find((variant) => {
-    return variant.options.every((option, index) => {
-      return option === this.getAllSelectedOptions()[index].value;
+  get selectedVariant() {
+    return this.variantData.find((variant) => {
+      return variant.options.every((option, index) => {
+        return option === this.getAllSelectedOptions()[index].value;
+      });
     });
-  });
-}
+  }
 
 
 

@@ -51,4 +51,45 @@
 </product-media>
 
 
+
+        <div class="product_faq-wrap product_faq-desktop">
+           {%- for block in section.blocks -%}
+              {%- case block.type -%}
+              {%- when "Faq_item" -%}
+                {%- assign b = block.settings -%}
+                <custom-accordion>
+                    <div class="faq-item">
+                    <div class="faq-item-title">
+                        {%- if b.title != blank -%}
+                        <h4 class="{{ b.title_size }}">{{ b.title }}</h4>
+                        {%- endif -%}
+                        <div class="faq-collapsiable-icon">
+                        <div class="faq-icon-plus">
+                            {% comment %} {{ 'plus.svg' | inline_asset_content }} {% endcomment %}
+                            <svg class="accordion--header__plus" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.586207" y="0.586207" width="32.8276" height="32.8276" rx="4.10345" stroke="#F3F3F3" stroke-width="1.17241"></rect>
+                                <path d="M18.3464 15.745H23.4483V18.2839H18.3464V23.4483H15.6537V18.2839H10.5518V15.745H15.6537V10.5518H18.3464V15.745Z" fill="#161616"></path>
+                                </svg>
+                        </div>
+                        <div class="faq-icon-minus">
+                            {% comment %} {{ 'crose.svg' | inline_asset_content }} {% endcomment %}
+                            <svg class="accordion--header__minus" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.586207" y="0.586207" width="32.8276" height="32.8276" rx="4.10345" stroke="#F3F3F3" stroke-width="1.17241"></rect>
+                                <path d="M18.3464 15.7306H23.4483V18.2695H18.3464H15.6537H10.5518V15.7306H15.6537H18.3464Z" fill="#161616"></path>
+                                </svg>
+                        </div>
+                        </div>
+                    </div>
+                    {%- if b.details != blank -%}
+                        <div class="faq-item-content" open="">
+                        <p>{{ b.details }}</p>
+                        </div>
+                    {%- endif -%}
+                    </div>
+                    </custom-accordion>
+                   
+                {% endcase %}
+            {% endfor %}
+
+            </div>
  

@@ -12,16 +12,15 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
+        },
+        "sub_title_h8xE7T": {
+          "type": "Sub_title",
+          "settings": {
+            "title": "{{ product.metafields.custom.sub_title.value }}"
+          }
         },
         "price": {
           "type": "price",
@@ -34,37 +33,72 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
+        "guarantee_zX7PT7": {
+          "type": "Guarantee",
+          "settings": {
+            "img": "shopify://shop_images/Vector.svg",
+            "title": "14 Day Perfect Fit Guarantee",
+            "guarantee_text": "We offer easy returns and exchanges if you're unhappy on your size"
+          }
+        },
+        "inventory_k8ryfp": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "share": {
-          "type": "share",
+        "list_style_Kk4pP9": {
+          "type": "list_style",
           "settings": {
-            "share_label": "Share"
+            "list_style": "<ul><li>4 Day Perfect Fit Guarantee</li><li>Free shipping on orders over $100</li><li>U.S based customer service</li></ul>"
+          }
+        },
+        "faq_item_KgfYTU": {
+          "type": "Faq_item",
+          "settings": {
+            "title": "Product Details",
+            "title_size": "h3",
+            "details": "<p>Stop compromising comfort for style. Tone Tec replaces stiff, traditional clothing with a sharp, powerful look in a high-performance fabric that actually moves with you.</p><h3><strong>Physique-Defining Fit:</strong></h3><p>Tapered cuts that broaden your chest and lean out your waist for an athletic upgrade.</p><h3><strong>All-Day Comfort:</strong></h3><p>4-way stretch fabric that feels like gym gear but looks like premium attire.</p><h3><strong>Iron-Free Sharpness</strong></h3><p>Wrinkle-resistant technology stays crisp through workdays or travel without ever needing an iron.</p><h3><strong>Total Versatility</strong></h3><p>Clean, sophisticated aesthetic built to transition from business meetings to dates effortlessly.</p>"
+          }
+        },
+        "faq_item_GPhXV6": {
+          "type": "Faq_item",
+          "settings": {
+            "title": "Fabrics & Material",
+            "title_size": "h3",
+            "details": "{{ product.metafields.custom.fabrics_material | metafield_tag }}"
+          }
+        },
+        "faq_item_rAbaa3": {
+          "type": "Faq_item",
+          "settings": {
+            "title": "Shipping & Returns",
+            "title_size": "h3",
+            "details": "<h3><strong>Shipping</strong></h3><p>Orders are processed within 1–2 business days.</p><h3>Returns</h3><p>We offer a 14-day window for returns or exchanges. To be eligible, items must be in their original, unworn condition.</p>"
           }
         }
       },
       "block_order": [
-        "vendor",
         "title",
+        "sub_title_h8xE7T",
         "price",
         "variant_picker",
-        "quantity_selector",
+        "guarantee_zX7PT7",
+        "inventory_k8ryfp",
         "buy_buttons",
-        "description",
-        "share"
+        "list_style_Kk4pP9",
+        "faq_item_KgfYTU",
+        "faq_item_GPhXV6",
+        "faq_item_rAbaa3"
       ],
       "settings": {
         "enable_sticky_info": false,
@@ -82,17 +116,6 @@
         "padding_bottom": 12
       }
     },
-    "disclosures": {
-      "type": "disclosures",
-      "settings": {
-        "heading": "Disclosures",
-        "heading_size": "h2",
-        "open_by_default": false,
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 0
-      }
-    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -106,7 +129,7 @@
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": false,
+        "show_rating": true,
         "padding_top": 36,
         "padding_bottom": 28
       }
@@ -114,7 +137,6 @@
   },
   "order": [
     "main",
-    "disclosures",
     "related-products"
   ]
 }

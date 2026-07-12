@@ -16,6 +16,7 @@
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
   {{ 'custom-product-gallery.css' | asset_url | stylesheet_tag }}
+  {{ 'section-faq.css' | asset_url | stylesheet_tag }}
 
   {% unless product.has_only_default_variant %}
     {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
@@ -78,7 +79,7 @@
     <div class="page-width">
       <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
         <div class="grid__item product__media-wrapper">
-          {% render 'custom-product-gallery', product: product %}
+          {% render 'custom-product-gallery', product: product, block: section.blocks %}
           
 
           {% comment %} {% render 'custom-product-gallery', product: product %} {% endcomment %}
@@ -94,6 +95,31 @@
               {%- case block.type -%}
                 {%- when '@app' -%}
                   {% render block %}
+                  {%  when "Guarantee" %} 
+                    <div class="guarantee_wrap">
+                      <div class="guarantee_image">
+                        {% render 'image',
+                                            image: block.settings.img,
+                                            sizes: '100px',
+                                              width: 100,
+                                            widths: '32,64,80,90,100',
+                                            placeholder: 'detailed-apparel-1'
+                                            %}
+                      </div>
+                      <div class="guarantee_content">
+                        <h4>{{ block.settings.title }}</h4>
+                        <p>{{ block.settings.guarantee_text }}</p>
+                      </div>
+                    </div>
+                    {%- when 'list_style' -%}
+
+                      <div class="list_text-wrap">
+                        {{ block.settings.list_style }} 
+                      </div>
+
+                      
+                        
+                      
                 {%- when 'text' -%}
                   <p
                     class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
@@ -101,6 +127,8 @@
                   >
                     {{- block.settings.text -}}
                   </p>
+                  {%  when 'Sub_title' %} 
+                      <p>{{ block.settings.title }}</p>
                 {%- when 'title' -%}
                   <div class="product__title" {{ block.shopify_attributes }}>
                     <h1>{{ product.title | escape }}</h1>
@@ -474,7 +502,47 @@
                       {{ block.settings.text | default: block.settings.page.title | escape }}
                     </button>
                   </modal-opener>
-                {%- when 'share' -%}
+                
+                
+                   {%- when "Faq_item" -%}
+                   <div class="product_faq-wrap product_faq-mobile">
+                     {%- assign b = block.settings -%}
+                    <custom-accordion>
+                      <div class="faq-item">
+                      <div class="faq-item-title">
+                          {%- if b.title != blank -%}
+                          <h4 class="{{ b.title_size }}">{{ b.title }}</h4>
+                          {%- endif -%}
+                          <div class="faq-collapsiable-icon">
+                          <div class="faq-icon-plus">
+                              {% comment %} {{ 'plus.svg' | inline_asset_content }} {% endcomment %}
+                              <svg class="accordion--header__plus" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <rect x="0.586207" y="0.586207" width="32.8276" height="32.8276" rx="4.10345" stroke="#F3F3F3" stroke-width="1.17241"></rect>
+                                  <path d="M18.3464 15.745H23.4483V18.2839H18.3464V23.4483H15.6537V18.2839H10.5518V15.745H15.6537V10.5518H18.3464V15.745Z" fill="#161616"></path>
+                                  </svg>
+                          </div>
+                          <div class="faq-icon-minus">
+                              {% comment %} {{ 'crose.svg' | inline_asset_content }} {% endcomment %}
+                              <svg class="accordion--header__minus" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <rect x="0.586207" y="0.586207" width="32.8276" height="32.8276" rx="4.10345" stroke="#F3F3F3" stroke-width="1.17241"></rect>
+                                  <path d="M18.3464 15.7306H23.4483V18.2695H18.3464H15.6537H10.5518V15.7306H15.6537H18.3464Z" fill="#161616"></path>
+                                  </svg>
+                          </div>
+                          </div>
+                       </div>
+                        {%- if b.details != blank -%}
+                            <div class="faq-item-content" open="">
+                            <p>{{ b.details }}</p>
+                            </div>
+                        {%- endif -%}
+                        </div>
+                    </custom-accordion>
+
+                   </div>
+                
+                
+                
+                  {%- when 'share' -%}
                   {% liquid
                     assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
                     render 'share-button', block: block, share_link: share_url
@@ -758,20 +826,6 @@
 </product-info>
 
 
-
- <script>
-      // var swiper = new Swiper('.mySwiper', {
-      //   loop: true,
-      //   spaceBetween: 10,
-      //   slidesPerView: 4,
-      //   freeMode: true,
-      //   watchSlidesProgress: true,
-      // });
-     
-    </script>
- {% comment %} thumbs: {
-          swiper: swiper,
-        }, {% endcomment %}
 {% schema %}
 {
   "name": "t:sections.main-product.name",
@@ -780,6 +834,100 @@
   "blocks": [
     {
       "type": "@app"
+    },
+     {
+      "type": "Faq_item",
+      "name": "Faq item",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "select",
+          "id": "title_size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            }
+          ],
+          "default": "h3",
+          "label": "Title size"
+        },
+        {
+          "type": "richtext",
+          "id": "details",
+          "label": "Details"
+        },
+        
+      ]
+    },
+    {
+      "type": "list_style",
+      "name":"List text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "list_style",
+          "label": "List text"
+        }
+      ]
+    },
+    {
+      "type": "Guarantee",
+      "name":"Guarantee",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Select image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "guarantee_text",
+          "label": "Text"
+        },
+      ]
+    },
+    {
+      "type": "Sub_title",
+      "name":"Sub Title",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
     },
     {
       "type": "text",

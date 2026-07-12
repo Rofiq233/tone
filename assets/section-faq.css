@@ -303,7 +303,7 @@
     }
 
     .faq-item {
-        padding: 16px;
+        padding: 10px 16px;
         border-radius: 16px;
     }
 
@@ -346,7 +346,7 @@
 
     .faq-item-title {
         gap: 24px;
-        align-items: start;
+        align-items: center;
     }
 
     .faq-item-title h4 {
