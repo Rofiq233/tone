@@ -15,6 +15,7 @@
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+  {{ 'custom-product-gallery.css' | asset_url | stylesheet_tag }}
 
   {% unless product.has_only_default_variant %}
     {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
@@ -77,7 +78,10 @@
     <div class="page-width">
       <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
         <div class="grid__item product__media-wrapper">
-          {% render 'product-media-gallery', variant_images: variant_images %}
+          {% render 'custom-product-gallery', product: product %}
+          
+
+          {% comment %} {% render 'custom-product-gallery', product: product %} {% endcomment %}
         </div>
         <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           <section
@@ -753,6 +757,21 @@
   </product-component>
 </product-info>
 
+
+
+ <script>
+      // var swiper = new Swiper('.mySwiper', {
+      //   loop: true,
+      //   spaceBetween: 10,
+      //   slidesPerView: 4,
+      //   freeMode: true,
+      //   watchSlidesProgress: true,
+      // });
+     
+    </script>
+ {% comment %} thumbs: {
+          swiper: swiper,
+        }, {% endcomment %}
 {% schema %}
 {
   "name": "t:sections.main-product.name",

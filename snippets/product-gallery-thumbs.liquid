@@ -1,0 +1,19 @@
+
+
+   <div thumbsSlider="" class="swiper mySwiper product_thumble-wrap">
+      <div class="swiper-wrapper">
+        {% for media in product.media %}
+            <div class="swiper-slide thumble_image">
+               {% render 'image',
+                          image: media.preview_image,
+                           sizes: '200px',
+                             width: 200,
+                             widths: '100,150,200',
+                              placeholder: 'detailed-apparel-1'
+                              %}
+            </div>
+            
+        {% endfor %}
+      </div> 
+    </div>
+

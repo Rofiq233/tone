@@ -1051,7 +1051,7 @@ class SlideshowComponent extends SliderComponent {
     const slideScrollPosition =
       this.slider.scrollLeft +
       this.sliderFirstItemNode.clientWidth *
-        (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
+      (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
     this.slider.scrollTo({
       left: slideScrollPosition,
     });
@@ -1059,6 +1059,9 @@ class SlideshowComponent extends SliderComponent {
 }
 
 customElements.define('slideshow-component', SlideshowComponent);
+
+
+
 
 class VariantSelects extends HTMLElement {
   constructor() {
@@ -1068,9 +1071,12 @@ class VariantSelects extends HTMLElement {
   connectedCallback() {
     this.addEventListener('change', (event) => {
       const target = this.getInputForEventTarget(event.target);
+
+
       this.updateSelectionMetadata(event);
 
       this.dispatchProductSelectEvent();
+
 
       publish(PUB_SUB_EVENTS.optionValueSelectionChange, {
         data: {
@@ -1080,7 +1086,41 @@ class VariantSelects extends HTMLElement {
         },
       });
     });
+    
+    
+    const mediaId=this.selectedVariant.featured_media.id;
+    const slide=document.querySelector(
+`[data-media-id="${mediaId}"]`
+);
+
+if(!slide) return;
+
+productSwiper.slideToLoop(
+    Number(slide.dataset.index)
+);
   }
+
+
+
+
+get variantData() {
+  this._variantData =
+    this._variantData ||
+    JSON.parse(this.querySelector('[data-product-variants]').textContent);
+
+  return this._variantData;
+}
+
+
+get selectedVariant() {
+  return this.variantData.find((variant) => {
+    return variant.options.every((option, index) => {
+      return option === this.getAllSelectedOptions()[index].value;
+    });
+  });
+}
+
+
 
   getAllSelectedOptions() {
     const options = [];
@@ -1178,6 +1218,7 @@ class VariantSelects extends HTMLElement {
   }
 
   getInputForEventTarget(target) {
+    console.log(target);
     return target.tagName === 'SELECT' ? target.selectedOptions[0] : target;
   }
 
@@ -1189,6 +1230,20 @@ class VariantSelects extends HTMLElement {
 }
 
 customElements.define('variant-selects', VariantSelects);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class ProductRecommendations extends HTMLElement {
   observer = undefined;

@@ -14,7 +14,7 @@
     "heading_scale": 100,
     "type_body_font": "sans_serif_n4",
     "body_scale": 100,
-    "page_width": 1500,
+    "page_width": 1400,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 36,
     "spacing_grid_vertical": 8,
@@ -166,7 +166,7 @@
       },
       "scheme-3": {
         "settings": {
-          "background": "#F8F8F6",
+          "background": "#f8f8f6",
           "background_gradient": "",
           "text": "#000000",
           "button": "#ffffff",
