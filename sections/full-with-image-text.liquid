@@ -1,0 +1,252 @@
+{{ 'section-full-width-image.css' | asset_url | stylesheet_tag}}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.mobile_padding_top}}px;
+    padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+
+  assign s = section.settings
+
+-%} 
+
+ <div class="featured-banner__inner color-{{ section.settings.color_schema }} gradient section-{{ section.id }}-padding">
+            <div class="page-width">
+                <div class="featured-banner__wrapper">
+                    <div class="featured-banner__left {% if s.layout == 'left_image' %} featured-banner_image_left-content {% endif %}">
+
+                    <div class="featured_sub-title">
+                      {%- if s.sub_title != blank -%}
+                        <h6>{{ s.sub_title }}</h6>
+                        
+                      {%- endif -%}
+
+                    </div>
+                        {% if s.heading != blank %}
+                            <div class="featured-banner__left-top">
+                                <h2 class="{{ s.heading_size }}">{{ s.heading }}</h2>
+    
+                            </div>
+                            
+                        {% endif %}
+                        <div class="featured-banner__content">
+                           {{
+                            s.text
+                           }}
+                           {% if s.btn_one != blank or s.btn_two != blank %}
+                            <div class="featured_banner-btn-wrap">
+                              {%- if s.btn_one != blank -%}
+                                <a href="{{ s.btn_one_url }}" class="button button-primry">{{ s.btn_one }}</a>
+                                
+                              {%- endif -%}
+                              {% if s.btn_two != blank %}
+                                <a href="{{ s.btn_two_url }}" class="button button-primry">{{ s.btn_two }}</a>
+                                
+                              {% endif %}
+                            </div>
+                            
+                           {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="featured-banner__right {% if s.layout == 'left_image' %} featured-banner_image_left {% endif %}">
+                <div class="featured-banner__image">
+                    {% render 'responsive-picture',
+                        desktop_image: s.image_desktop,
+                        mobile_image: s.image_mobile,
+                        loading: 'lazy',
+                        fetchpriority: 'high',
+                        sizes: '100vh',
+                        class: 'full-image',
+                        placeholder:"hero-apparel-2"
+                        %}
+                </div>
+
+            </div>
+
+        </div>
+
+  
+{% schema %}
+  {
+    "name": "Full with image text",
+    "tag": "section",
+    "class": "featured-banner",
+    "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Image layout",
+      "options": [
+        {
+          "label": "left Image",
+          "value": "left_image"
+        },
+        {
+          "label": "Right image",
+          "value": "right_image"
+        }
+      ],
+      "default":"right_image"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub title"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+     },
+     {
+      "type": "header",
+      "content": "Buttons"
+     },
+     {
+      "type": "text",
+      "id": "btn_one",
+      "label": "Button one"
+     },
+     {
+      "type": "url",
+      "id": "btn_one_url",
+      "label": "Button one url"
+     },
+     {
+      "type": "text",
+      "id": "btn_two",
+      "label": "Button two"
+     },
+     {
+      "type": "url",
+      "id": "btn_two_url",
+      "label": "Button two url"
+     },
+     {
+        "type": "header",
+        "content": "Images"
+     },
+     {
+        "type": "image_picker",
+        "id": "image_desktop",
+        "label": "Image for desktop"
+     },
+     {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Image for mobile"
+     },
+      {
+      "type": "color_scheme",
+      "id": "color_schema",
+      "label": "Color schema"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 36
+    }
+    ],
+    "presets": [
+      {
+        "name": "Full with image text",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

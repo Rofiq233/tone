@@ -135,6 +135,28 @@
         "padding_bottom": 28
       }
     },
+    "full_with_image_text_3rBXxU": {
+      "type": "full-with-image-text",
+      "name": "Full with image text",
+      "settings": {
+        "layout": "left_image",
+        "sub_title": "Built For Authority",
+        "heading": "Master The Fit",
+        "heading_size": "h1",
+        "text": "<p>A high-performance take on timeless masculine style. This technical collection pairs a tailored, physique-enhancing fit with proprietary 4-way stretch, delivering a sharp, wrinkle-free aesthetic that moves with you from morning to evening events.</p>",
+        "btn_one": "Functional Luxury",
+        "btn_one_url": "",
+        "btn_two": "Premium Quality",
+        "btn_two_url": "",
+        "image_desktop": "shopify://shop_images/led-evergreen-urn-filler-festive-holiday-decororacle-gifts-4834516.jpg",
+        "image_mobile": "shopify://shop_images/led-evergreen-urn-filler-festive-holiday-decororacle-gifts-9903019.jpg",
+        "color_schema": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
     "featured_collection_MQbwMV": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
@@ -162,6 +184,28 @@
         "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "full_with_image_text_K7Nfka": {
+      "type": "full-with-image-text",
+      "name": "Full with image text",
+      "settings": {
+        "layout": "right_image",
+        "sub_title": "",
+        "heading": "Ultimate Comfort, Infinite Style",
+        "heading_size": "h1",
+        "text": "<ul><li>Precision tailored fitIron-free </li><li>sharpnessInfinite dynamic </li><li>stretchBreathable peak freshness</li></ul>",
+        "btn_one": "",
+        "btn_one_url": "",
+        "btn_two": "",
+        "btn_two_url": "",
+        "image_desktop": "shopify://shop_images/mens-running-shoes-athletic-casual-sneakersoracle-gifts-9706488.png",
+        "image_mobile": "shopify://shop_images/mens-running-shoes-athletic-casual-sneakersoracle-gifts-1499668.jpg",
+        "color_schema": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
       }
     },
     "image_card_arGRfA": {
@@ -326,7 +370,9 @@
   "order": [
     "main",
     "related-products",
+    "full_with_image_text_3rBXxU",
     "featured_collection_MQbwMV",
+    "full_with_image_text_K7Nfka",
     "image_card_arGRfA",
     "faq_igGNqB",
     "our_guarantees_K9bU84"
