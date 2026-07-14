@@ -1,0 +1,256 @@
+{{ "image-card.css" |  asset_url |  stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.mobile_padding_top}}px;
+    padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+
+  assign s = section.settings
+
+-%} 
+  
+
+        <div class="top-product__inner color-{{ section.settings.color_schema }} gradient section-{{ section.id }}-padding">
+            <div class="page-width"> 
+                <div class="top-product__wrapper">
+                    {%- if s.heading != blank or s.sub_text != blank -%}
+                        <div class="top-product__content {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                            {% if s.sub_text != blank %}
+                                <p>{{ s.sub_text }}</p>
+                                
+                            {% endif %}
+                            {% if s.heading != blank %}
+                                <h2 class="{{ s.heading_size }}">{{ s.heading }}</h2>
+                                
+                            {% endif %}
+                        </div>
+                        
+                    {%- endif -%}
+                    <div class="top-product__items">
+                        {% for block in section.blocks %}
+                            {%- assign block_settings = block.settings -%}
+
+                            <div class="top-product__item {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                                <div class="top-product__image">
+                                    {% render 'image',
+                                            image: block_settings.img,
+                                            sizes: '400px',
+                                              width: 400,
+                                            widths: '200,250,300,330,350,380,400',
+                                            placeholder: 'detailed-apparel-1'
+                                            %}
+                                </div>
+                                {% if block_settings.title != blank %}
+                                    <div class="top-product__name">
+                                        <h4>{{ block_settings.title }}</h4>
+                                    </div>
+                                    
+                                {% endif %}
+                                {% if block_settings.text != blank %}
+                                    
+                                    <div class="top-product__description">
+                                        <p>{{ block_settings.text }}</p>
+                                    </div>
+                                {% endif %}
+                            </div>
+
+
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+{% schema %}
+  {
+    "name": "Image card",
+    "tag": "section",
+    "class": "image-card",
+    "blocks": [
+        {
+            "type": "Card",
+            "name":"Card",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "img",
+                    "label": "Select image"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "inline_richtext",
+                    "id": "text",
+                    "label": "Text"
+                }
+            ]
+        }
+    ],
+    "settings": [
+     
+    {
+        "type": "text",
+        "id": "sub_text",
+        "label": "Sub title"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_schema",
+      "label": "Color schema"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 36
+    } 
+    ],
+    "presets": [
+      {
+        "name": "Image card",
+         "settings": {
+        "sub_text": "Superior Craft",
+        "heading": "Command Respect Without Effort",
+        "heading_size": "h1",
+        "color_schema": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
+      },
+         "blocks": {
+        "card_qgcydD": {
+          "type": "Card",
+          "settings": {
+            "title": "Title",
+            "text": "Total comfort for high-performance."
+          }
+        },
+        "card_AYRY4K": {
+          "type": "Card",
+          "settings": {
+            "title": "Title",
+            "text": "Total comfort for high-performance."
+          }
+        },
+        "card_jLgWGB": {
+          "type": "Card",
+          "settings": {
+            "title": "Title",
+            "text": "Total comfort for high-performance."
+          }
+        },
+        "card_NR8h3e": {
+          "type": "Card",
+          "settings": {
+            "title": "Title",
+            "text": "Total comfort for high-performance."
+          }
+        }
+      },
+      "block_order": [
+        "card_qgcydD",
+        "card_AYRY4K",
+        "card_jLgWGB",
+        "card_NR8h3e"
+      ],
+      }
+    ]
+  }
+{% endschema %}

@@ -136,7 +136,7 @@ padding: 0;
 
  summary.list-menu__item {
      padding-top: 0;
-     padding-left: 0;
+     /* padding-left: 0; */
      padding-bottom: 0;
  }
 

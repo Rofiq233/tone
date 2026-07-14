@@ -1104,27 +1104,33 @@ class VariantSelects extends HTMLElement {
 
 
   get variantData() {
-    this._variantData =
-      this._variantData ||
-      JSON.parse(this.querySelector('[data-product-variants]').textContent);
+    this._variantData = this._variantData || JSON.parse(this.querySelector('[data-product-variants]').textContent);
 
     return this._variantData;
   }
 
 
-  get selectedVariant() {
-    return this.variantData.find((variant) => {
-      return variant.options.every((option, index) => {
-        return option === this.getAllSelectedOptions()[index].value;
-      });
+
+
+
+get selectedVariant() {
+  const selectedOptions = this.getAllSelectedOptions();
+
+  return this.variantData.find((variant) => {
+    return variant.options.every((option, index) => {
+      return option === selectedOptions[index].value;
     });
-  }
+  });
+}
 
 
 
   getAllSelectedOptions() {
     const options = [];
     this.querySelectorAll('fieldset, .product-form__input--dropdown').forEach((group) => {
+
+
+      
       const checked = group.querySelector('input:checked') || group.querySelector('select option[selected]');
       if (checked) {
         options.push({ name: checked.dataset.optionName || '', value: checked.value });
@@ -1132,6 +1138,11 @@ class VariantSelects extends HTMLElement {
     });
     return options;
   }
+
+
+
+
+
 
   dispatchProductSelectEvent() {
     const { ProductSelectEvent } = window.StandardEvents || {};

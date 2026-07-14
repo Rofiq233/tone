@@ -72,22 +72,6 @@
       });
 
 
-//  var swiper2 = new Swiper('.product__swiper', {
-//         loop: true,
-//         spaceBetween: 0,
-//         navigation: {
-//           nextEl: '.swiper-button-next',
-//           prevEl: '.swiper-button-prev',
-//         },
-//         scrollbar: {
-//           el: '.swiper-scrollbar',
-//           hide: false,
-//         },
-//           thumbs: {
-//           swiper: thumbsSwiper,
-//         },
-//       });
-
 
 window.productSwiper = new Swiper('.product__swiper', {
   loop: true,

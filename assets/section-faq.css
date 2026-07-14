@@ -1,6 +1,9 @@
 .faq-header {
     margin-bottom: 40px !important;
 }
+.faq-header h2{
+    margin: 0;
+}
 
 
 

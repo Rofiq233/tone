@@ -287,8 +287,8 @@
         "color_schema": "scheme-2",
         "heading": "Frequently Asked Questions",
         "heading_size": "h1",
-        "padding_top": 100,
-        "padding_bottom": 100,
+        "padding_top": 10,
+        "padding_bottom": 50,
         "mobile_padding_top": 50,
         "mobile_padding_bottom": 50
       }

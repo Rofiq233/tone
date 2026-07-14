@@ -26,7 +26,9 @@
     if value.swatch.image
       assign image_url = value.swatch.image | image_url: width: 50
       assign swatch_value = 'url(' | append: image_url | append: ')'
+      
       assign swatch_focal_point = value.swatch.image.presentation.focal_point
+
     elsif value.swatch.color
       assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')'
     else
@@ -38,6 +40,7 @@
       assign option_disabled = false
     endif
   -%}
+  
 
   {%- capture input_id -%}
     {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
@@ -80,7 +83,10 @@
       help_text: help_text,
       additional_props: input_dataset
     %}
+
   {%- elsif picker_type == 'button' -%}
+
+  
     <input
       type="radio"
       id="{{ input_id }}"
@@ -99,6 +105,9 @@
       {{ value -}}
       {{ label_unavailable }}
     </label>
+
+
+
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option
       id="{{ input_id }}"

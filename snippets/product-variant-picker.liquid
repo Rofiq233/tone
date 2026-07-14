@@ -7,6 +7,7 @@
   - product_form_id: {String} Id of the product form to which the variant picker is associated.
   Usage:
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+  
 {% endcomment %}
 {%- unless product.has_only_default_variant -%}
   <variant-selects
