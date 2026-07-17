@@ -1072,6 +1072,13 @@ class VariantSelects extends HTMLElement {
     this.addEventListener('change', (event) => {
       const target = this.getInputForEventTarget(event.target);
 
+      let variantPrice = event.target.dataset.variantPrice;
+
+
+
+      let targetChangePrice = document.querySelector(".custom_product_price");
+      targetChangePrice.innerHTML = variantPrice;
+
 
       this.updateSelectionMetadata(event);
 
@@ -1113,15 +1120,15 @@ class VariantSelects extends HTMLElement {
 
 
 
-get selectedVariant() {
-  const selectedOptions = this.getAllSelectedOptions();
+  get selectedVariant() {
+    const selectedOptions = this.getAllSelectedOptions();
 
-  return this.variantData.find((variant) => {
-    return variant.options.every((option, index) => {
-      return option === selectedOptions[index].value;
+    return this.variantData.find((variant) => {
+      return variant.options.every((option, index) => {
+        return option === selectedOptions[index].value;
+      });
     });
-  });
-}
+  }
 
 
 
@@ -1130,7 +1137,7 @@ get selectedVariant() {
     this.querySelectorAll('fieldset, .product-form__input--dropdown').forEach((group) => {
 
 
-      
+
       const checked = group.querySelector('input:checked') || group.querySelector('select option[selected]');
       if (checked) {
         options.push({ name: checked.dataset.optionName || '', value: checked.value });

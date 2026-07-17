@@ -92,6 +92,7 @@
               {%- endif -%}
             </span>
             {%- render 'loading-spinner' -%}
+            <span class="custom_product_price">{{ product.selected_or_first_available_variant.price |  money }}</span>
           </button>
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}

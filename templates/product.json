@@ -18,6 +18,7 @@
         },
         "sub_title_h8xE7T": {
           "type": "Sub_title",
+          "disabled": true,
           "settings": {
             "title": "{{ product.metafields.custom.sub_title.value }}"
           }
@@ -25,6 +26,12 @@
         "price": {
           "type": "price",
           "settings": {}
+        },
+        "list_style_Kk4pP9": {
+          "type": "list_style",
+          "settings": {
+            "list_style": "<ul><li>4 Day Perfect Fit Guarantee</li><li>Free shipping on orders over $100</li><li>U.S based customer service</li></ul>"
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -35,6 +42,7 @@
         },
         "guarantee_zX7PT7": {
           "type": "Guarantee",
+          "disabled": true,
           "settings": {
             "img": "shopify://shop_images/Vector.svg",
             "title": "14 Day Perfect Fit Guarantee",
@@ -43,6 +51,7 @@
         },
         "inventory_k8ryfp": {
           "type": "inventory",
+          "disabled": true,
           "settings": {
             "text_style": "body",
             "inventory_threshold": 10,
@@ -56,55 +65,27 @@
             "show_gift_card_recipient": false
           }
         },
-        "list_style_Kk4pP9": {
-          "type": "list_style",
-          "settings": {
-            "list_style": "<ul><li>4 Day Perfect Fit Guarantee</li><li>Free shipping on orders over $100</li><li>U.S based customer service</li></ul>"
-          }
-        },
-        "faq_item_KgfYTU": {
-          "type": "Faq_item",
-          "settings": {
-            "title": "Product Details",
-            "title_size": "h3",
-            "details": "<p>Stop compromising comfort for style. Tone Tec replaces stiff, traditional clothing with a sharp, powerful look in a high-performance fabric that actually moves with you.</p><h3><strong>Physique-Defining Fit:</strong></h3><p>Tapered cuts that broaden your chest and lean out your waist for an athletic upgrade.</p><h3><strong>All-Day Comfort:</strong></h3><p>4-way stretch fabric that feels like gym gear but looks like premium attire.</p><h3><strong>Iron-Free Sharpness</strong></h3><p>Wrinkle-resistant technology stays crisp through workdays or travel without ever needing an iron.</p><h3><strong>Total Versatility</strong></h3><p>Clean, sophisticated aesthetic built to transition from business meetings to dates effortlessly.</p>"
-          }
-        },
-        "faq_item_GPhXV6": {
-          "type": "Faq_item",
-          "settings": {
-            "title": "Fabrics & Material",
-            "title_size": "h3",
-            "details": "{{ product.metafields.custom.fabrics_material | metafield_tag }}"
-          }
-        },
-        "faq_item_rAbaa3": {
-          "type": "Faq_item",
-          "settings": {
-            "title": "Shipping & Returns",
-            "title_size": "h3",
-            "details": "<h3><strong>Shipping</strong></h3><p>Orders are processed within 1–2 business days.</p><h3>Returns</h3><p>We offer a 14-day window for returns or exchanges. To be eligible, items must be in their original, unworn condition.</p>"
-          }
+        "description_Jjtp9r": {
+          "type": "description",
+          "settings": {}
         }
       },
       "block_order": [
         "title",
         "sub_title_h8xE7T",
         "price",
+        "list_style_Kk4pP9",
         "variant_picker",
         "guarantee_zX7PT7",
         "inventory_k8ryfp",
         "buy_buttons",
-        "list_style_Kk4pP9",
-        "faq_item_KgfYTU",
-        "faq_item_GPhXV6",
-        "faq_item_rAbaa3"
+        "description_Jjtp9r"
       ],
       "settings": {
-        "enable_sticky_info": false,
+        "enable_sticky_info": true,
         "color_scheme": "scheme-2",
         "media_size": "medium",
-        "constrain_to_viewport": false,
+        "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "show",
@@ -164,11 +145,61 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "image_with_text_6kXJxN": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_xHdegV": {
+          "type": "heading",
+          "settings": {
+            "heading": "30-Day Money Back Guarantee",
+            "heading_size": "h2"
+          }
+        },
+        "text_WxUA9b": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We offer a 30-day return window on all purchases. If your order doesn’t meet your expectations for any reason, you’re welcome to send it back within this period. Our goal is to make the return process as simple and stress-free as possible.</p><p>If you have any questions or need assistance with your return, feel free to contact us at<a href=\"mailto:info@decorsdeluxe.com\" title=\"mailto:info@decorsdeluxe.com\"><strong>info@decorsdeluxe.com</strong></a>— we’re happy to help.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_RU9pee": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_xHdegV",
+        "text_WxUA9b",
+        "button_RU9pee"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/decorsbox.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
     "related-products",
-    "featured_collection_MQbwMV"
+    "featured_collection_MQbwMV",
+    "image_with_text_6kXJxN"
   ]
 }

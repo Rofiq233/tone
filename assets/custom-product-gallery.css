@@ -26,9 +26,11 @@
     position: absolute;
     bottom: 30px;
     display: flex;
-    right: 20px;
+    right: 10px;
     gap: 15px;
     flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .product__image {
@@ -40,7 +42,9 @@
     color: #fff;
     position: static !important;
 }
-
+.product__media-slider .swiper-button-prev{
+    margin-left: 20p;
+}
 .thumble_image {
     border: 1px solid rgb(0, 0, 0, 0.5);
     line-height: 0;

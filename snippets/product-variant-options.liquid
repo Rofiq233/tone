@@ -87,7 +87,7 @@
   {%- elsif picker_type == 'button' -%}
 
   
-    <input
+    {% comment %} <input
       type="radio"
       id="{{ input_id }}"
       name="{{ input_name | escape }}"
@@ -104,7 +104,61 @@
     <label for="{{ input_id }}">
       {{ value -}}
       {{ label_unavailable }}
-    </label>
+    </label> {% endcomment %}
+
+
+ {% assign option_name = option.name | downcase %}
+{% assign variant_image = blank %}
+{%- assign variant_price = blank -%}
+{% if option_name == 'color' %}
+  {% assign option_key = 'option' | append: option.position %}
+
+  {% for variant in product.variants %}
+    {% if variant[option_key] == value %}
+      {% assign variant_image = variant.featured_image %}
+      {% assign variant_price = variant.price %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% assign variant_key = 'option' | append: option.position %}
+
+{% assign variant = product.variants | where: variant_key, value | first %}
+
+
+
+<input
+  type="radio"
+  id="{{ input_id }}"
+  name="{{ input_name | escape }}"
+  value="{{ escaped_value }}"
+  form="{{ product_form_id }}"
+  data-variant-price="{{ variant.price |  money }}"
+  {% if value.selected %}
+    checked
+  {% endif %}
+  {% if option_disabled %}
+    class="disabled"
+  {% endif %}
+  {{ input_dataset }}
+>
+  
+<label for="{{ input_id }}" class="variant-button">
+
+  {% if option_name == 'color' and variant_image %}
+    {{
+      variant_image
+      | image_url: width: 55
+      | image_tag:
+        loading: 'lazy',
+        alt: value
+    }}
+  {% else %}
+    {{ value }}
+  {% endif %}
+
+  {{ label_unavailable }}
+</label>
 
 
 

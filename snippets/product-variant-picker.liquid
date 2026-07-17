@@ -51,8 +51,13 @@
           %}
         </fieldset>
       {%- elsif picker_type == 'button' -%}
-        <fieldset class="js product-form__input product-form__input--pill">
-          <legend class="form__label">{{ option.name }}</legend>
+        {%- assign option_name = option.name |  downcase -%}
+        <fieldset class="js product-form__input product-form__input--pill {% if option_name == 'color' or option_name == 'colour'  %} variant_option_color-wrap {% endif %}">
+          <legend class="form__label">{{ option.name }}:
+             <span data-selected-value>
+              {{- option.selected_value -}}
+            </span>
+          </legend>
           {% render 'product-variant-options',
             product: product,
             option: option,
