@@ -135,246 +135,40 @@
         "padding_bottom": 28
       }
     },
-    "full_with_image_text_3rBXxU": {
-      "type": "full-with-image-text",
-      "name": "Full with image text",
-      "settings": {
-        "layout": "left_image",
-        "sub_title": "Built For Authority",
-        "heading": "Master The Fit",
-        "heading_size": "h1",
-        "text": "<p>A high-performance take on timeless masculine style. This technical collection pairs a tailored, physique-enhancing fit with proprietary 4-way stretch, delivering a sharp, wrinkle-free aesthetic that moves with you from morning to evening events.</p>",
-        "btn_one": "Functional Luxury",
-        "btn_one_url": "",
-        "btn_two": "Premium Quality",
-        "btn_two_url": "",
-        "image_desktop": "shopify://shop_images/led-evergreen-urn-filler-festive-holiday-decororacle-gifts-4834516.jpg",
-        "image_mobile": "shopify://shop_images/led-evergreen-urn-filler-festive-holiday-decororacle-gifts-9903019.jpg",
-        "color_schema": "",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
-      }
-    },
     "featured_collection_MQbwMV": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "active-shorts",
         "products_to_show": 16,
-        "title": "Complete the Look",
+        "title": "OTHERS ALSO BOUGHT:",
         "heading_size": "h1",
-        "description": "",
+        "description": "<p>Buy 2 -15% | Buy 3 -20% | Buy 4 -25%</p>",
         "show_description": false,
         "description_style": "body",
+        "align_item": "center",
         "columns_desktop": 4,
-        "enable_desktop_slider": true,
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": false,
         "view_all_style": "solid",
         "color_scheme": "scheme-2",
         "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
+        "image_shape": "small_round",
+        "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": false,
+        "show_rating": true,
         "quick_add": "none",
         "columns_mobile": "2",
-        "swipe_on_mobile": true,
+        "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "full_with_image_text_K7Nfka": {
-      "type": "full-with-image-text",
-      "name": "Full with image text",
-      "settings": {
-        "layout": "right_image",
-        "sub_title": "",
-        "heading": "Ultimate Comfort, Infinite Style",
-        "heading_size": "h1",
-        "text": "<ul><li>Precision tailored fitIron-free </li><li>sharpnessInfinite dynamic </li><li>stretchBreathable peak freshness</li></ul>",
-        "btn_one": "",
-        "btn_one_url": "",
-        "btn_two": "",
-        "btn_two_url": "",
-        "image_desktop": "shopify://shop_images/mens-running-shoes-athletic-casual-sneakersoracle-gifts-9706488.png",
-        "image_mobile": "shopify://shop_images/mens-running-shoes-athletic-casual-sneakersoracle-gifts-1499668.jpg",
-        "color_schema": "",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
-      }
-    },
-    "image_card_arGRfA": {
-      "type": "image-card",
-      "blocks": {
-        "card_jqPniz": {
-          "type": "Card",
-          "settings": {
-            "img": "shopify://shop_images/top-product-1.webp",
-            "title": "Pro Stretch",
-            "text": "Total comfort for high-performance."
-          }
-        },
-        "card_CPMLCX": {
-          "type": "Card",
-          "settings": {
-            "img": "shopify://shop_images/top-product-2.webp",
-            "title": "Fit Upgrade",
-            "text": "Total comfort for high-performance."
-          }
-        },
-        "card_4rTKTm": {
-          "type": "Card",
-          "settings": {
-            "img": "shopify://shop_images/top-product-3.webp",
-            "title": "Unique Style",
-            "text": "The only essential for every environment."
-          }
-        },
-        "card_3XGzFg": {
-          "type": "Card",
-          "settings": {
-            "img": "shopify://shop_images/top-product-4.webp",
-            "title": "Always Sharp",
-            "text": "Always stays crisp and wrinkle free."
-          }
-        }
-      },
-      "block_order": [
-        "card_jqPniz",
-        "card_CPMLCX",
-        "card_4rTKTm",
-        "card_3XGzFg"
-      ],
-      "name": "Image card",
-      "settings": {
-        "sub_text": "Superior Craft",
-        "heading": "Command Respect Without Effort",
-        "heading_size": "h1",
-        "color_schema": "scheme-2",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
-    "faq_igGNqB": {
-      "type": "faq",
-      "blocks": {
-        "faq_item_VNy6iG": {
-          "type": "Faq_item",
-          "settings": {
-            "title": "Will I get confirmation of my order?",
-            "title_size": "h2",
-            "details": "As soon as we receive your order, we'll send out  confirmation to your email address, this just means we've received your  order in our system and we've pre-authorised your payment method ready  for your purchase."
-          }
-        },
-        "faq_item_BMfrNf": {
-          "type": "Faq_item",
-          "settings": {
-            "title": "I placed my order but did not receive a confirmation email. Why?",
-            "title_size": "h2",
-            "details": "As soon as we receive your order, we'll send out  confirmation to your email address, this just means we've received your  order in our system and we've pre-authorised your payment method ready  for your purchase."
-          }
-        },
-        "faq_item_JT7gNt": {
-          "type": "Faq_item",
-          "settings": {
-            "title": "Why do you need my phone number?",
-            "title_size": "h2",
-            "details": "As soon as we receive your order, we'll send out  confirmation to your email address, this just means we've received your  order in our system and we've pre-authorised your payment method ready  for your purchase."
-          }
-        },
-        "faq_item_nNwPCr": {
-          "type": "Faq_item",
-          "settings": {
-            "title": "Is it safe to buy online through your website?",
-            "title_size": "h2",
-            "details": "As soon as we receive your order, we'll send out  confirmation to your email address, this just means we've received your  order in our system and we've pre-authorised your payment method ready  for your purchase."
-          }
-        },
-        "faq_item_RJthJf": {
-          "type": "Faq_item",
-          "settings": {
-            "title": "Do you deliver outside of the United Kingdom?",
-            "title_size": "h2",
-            "details": "As soon as we receive your order, we'll send out  confirmation to your email address, this just means we've received your  order in our system and we've pre-authorised your payment method ready  for your purchase."
-          }
-        }
-      },
-      "block_order": [
-        "faq_item_VNy6iG",
-        "faq_item_BMfrNf",
-        "faq_item_JT7gNt",
-        "faq_item_nNwPCr",
-        "faq_item_RJthJf"
-      ],
-      "name": "Faq's",
-      "settings": {
-        "color_schema": "scheme-2",
-        "heading": "Frequently Asked Questions",
-        "heading_size": "h1",
-        "padding_top": 10,
-        "padding_bottom": 50,
-        "mobile_padding_top": 50,
-        "mobile_padding_bottom": 50
-      }
-    },
-    "our_guarantees_K9bU84": {
-      "type": "our-guarantees",
-      "blocks": {
-        "item_K4Pd96": {
-          "type": "Item",
-          "settings": {
-            "img": "shopify://shop_images/Shipment.svg",
-            "max_width": 32,
-            "title": "Worldwide Shipping"
-          }
-        },
-        "item_93xRqR": {
-          "type": "Item",
-          "settings": {
-            "img": "shopify://shop_images/Us-United.svg",
-            "max_width": 32,
-            "title": "Based in USA"
-          }
-        },
-        "item_tEQkU8": {
-          "type": "Item",
-          "settings": {
-            "img": "shopify://shop_images/Vector.svg",
-            "max_width": 100,
-            "title": "14 day guarantee"
-          }
-        }
-      },
-      "block_order": [
-        "item_K4Pd96",
-        "item_93xRqR",
-        "item_tEQkU8"
-      ],
-      "name": "Our guarantees",
-      "settings": {
-        "color_schema": "scheme-3",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
       }
     }
   },
   "order": [
     "main",
     "related-products",
-    "full_with_image_text_3rBXxU",
-    "featured_collection_MQbwMV",
-    "full_with_image_text_K7Nfka",
-    "image_card_arGRfA",
-    "faq_igGNqB",
-    "our_guarantees_K9bU84"
+    "featured_collection_MQbwMV"
   ]
 }

@@ -25,7 +25,7 @@
                 <div class="featured-banner__wrapper">
                     <div class="featured-banner__left {% if s.layout == 'left_image' %} featured-banner_image_left-content {% endif %}">
 
-                    <div class="featured_sub-title">
+                    <div class="featured_sub-title {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                       {%- if s.sub_title != blank -%}
                         <h6>{{ s.sub_title }}</h6>
                         
@@ -33,13 +33,13 @@
 
                     </div>
                         {% if s.heading != blank %}
-                            <div class="featured-banner__left-top">
+                            <div class="featured-banner__left-top {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                                 <h2 class="{{ s.heading_size }}">{{ s.heading }}</h2>
     
                             </div>
                             
                         {% endif %}
-                        <div class="featured-banner__content">
+                        <div class="featured-banner__content {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                            {{
                             s.text
                            }}

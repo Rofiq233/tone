@@ -66,22 +66,17 @@
 
 <div
   class="color-{{ section.settings.color_scheme }} isolate gradient"
->
+>  
   <div
     class="collection{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
     id="collection-{{ section.id }}"
     data-id="{{ section.id }}"
   >
-    <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
-      {%- if section.settings.title != blank -%}
-        <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-          {{ section.settings.title }}
-        </h2>
-      {%- endif -%}
-      {%- if section.settings.description != blank
+    <div class="collection__title title-wrapper {{ section.settings.align_item }} title-wrapper--no-top-margin page-width{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
+     {%- if section.settings.description != blank
         or section.settings.show_description
         and section.settings.collection.description != empty
-      -%}
+        -%}
         <div class="collection__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {%- if section.settings.show_description -%}
             {{ section.settings.collection.description }}
@@ -89,7 +84,13 @@
             {{ section.settings.description -}}
           {%- endif %}
         </div>
+      {%- endif -%}  
+    {%- if section.settings.title != blank -%}
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.title }}
+        </h2>
       {%- endif -%}
+      
     </div>
 
     <slider-component class="slider-mobile-gutter{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if show_mobile_slider == false %} page-width{% endif %}{% if show_desktop_slider == false and section.settings.full_width == false %} page-width-desktop{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
@@ -308,6 +309,11 @@
       "default": "body"
     },
     {
+      "type": "text_alignment",
+      "id": "align_item",
+      "label": "Text align"
+    },
+    {
       "type": "header",
       "content": "t:sections.featured-collection.settings.header_collection.content"
     },    
@@ -425,6 +431,10 @@
         {
           "value": "round",
           "label": "t:sections.all.image_shape.options__8.label"
+        },
+        {
+          "value": "small_round",
+          "label": "Small round"
         }
       ],
       "default": "default",

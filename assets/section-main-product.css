@@ -1316,6 +1316,25 @@ a.product__text {
 .product-media-container.constrain-height .media {
   padding-top: min(var(--constrained-height), var(--ratio-percent));
 }
+.card__heading {
+    font-size: 18px;
+    line-height: 24px;
+}
+.price--on-sale .price-item--regular,
+.price--on-sale .price-item--regular,
+.price--on-sale .price-item--regular{
+  font-size: 16px;
+  font-weight: 700;
+}
+.rice-item.price-item--sale{
+ font-weight: 700 !important;
+}
+
+
+
+
+
+
 
 @media screen and (max-width: 749px) {
   .product-media-container.media-fit-cover {
