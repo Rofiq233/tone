@@ -60,9 +60,9 @@
             </div>
           {%- endif -%}
         </div>
-      {%- endif -%}
+      {%- endif -%} 
       <div class="drawer__header">
-        <h2 class="drawer__heading">{{ 'sections.cart.title' | t }}</h2>
+        <h2 class="drawer__heading">{{ 'sections.cart.title' | t }} ({{ cart.item_count }})</h2>
         <button
           class="drawer__close"
           type="button"
@@ -242,9 +242,9 @@
                           </ul>
                         </td>
 
-                        <td class="cart-item__totals right" role="cell" headers="CartDrawer-ColumnTotal">
+                         <td class="cart-item__totals right" role="cell" headers="CartDrawer-ColumnTotal">
                           {%- render 'loading-spinner' -%}
-                          <div class="cart-item__price-wrapper">
+                          {% comment %} <div class="cart-item__price-wrapper">
                             {%- if item.original_line_price != item.final_line_price -%}
                               <div class="cart-item__discounted-prices">
                                 <span class="visually-hidden">
@@ -272,8 +272,8 @@
                                 measurement: item.unit_price_measurement
                               %}
                             {%- endif -%}
-                          </div>
-                        </td>
+                          </div> {% endcomment %}
+                        </td> 
                         {%- liquid
                           assign has_qty_rules = false
                           if item.variant.quantity_rule.increment > 1 or item.variant.quantity_rule.min > 1 or item.variant.quantity_rule.max != null
@@ -488,6 +488,64 @@
         </form>
       </cart-drawer-items>
       <div class="drawer__footer">
+        <div class="upsel-product_wrap">
+           <div class="upsel-product_wrap_title">
+             <h4>YOU MAY ALSO LIKE</h4>
+           </div> 
+           <div class="upsel-product_product">
+             <div class="swiper cart_drawer-upsel">
+              <div class="swiper-wrapper">
+                {% for product in settings.product_list %}
+                  <div class="swiper-slide cart_drawer-item">
+                       <div class="cart_drawer-upsel_image">
+                        <a href="{{ product.url }}">
+                          {% render 'image',
+                                           image: product.featured_image,
+                                           sizes: '120px',
+                                             width: 120,
+                                           widths: '32,64,80,90,100,110,120',
+                                           placeholder: 'detailed-apparel-1'
+                                           %}
+                          </a>
+                                    <upsel-product class="upsel_cart-product-add">
+                                      {% form 'product', product, class:"product-form-upsel" %}
+                                       <input type="hidden" value="{{ product.selected_or_first_available_variant.id }}" name="id">
+                                        <button type="submit" class="product-form__submit"  
+                                         {% unless product.selected_or_first_available_variant.available %}
+                                            disabled
+                                          {% endunless %}>
+                                         
+                                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                                 <g clip-path="url(#clip0_9044_6441)">
+                                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M5.19697 2.9697C5.19697 2.14964 5.86176 1.48485 6.68182 1.48485C7.5019 1.48485 8.16667 2.14964 8.16667 2.9697V4.45455H5.19697V2.9697ZM3.71212 4.45455V2.9697C3.71212 1.32958 5.0417 0 6.68182 0C8.32191 0 9.65152 1.32958 9.65152 2.9697V4.45455H11.5076C11.8789 4.45455 12.1931 4.7288 12.2432 5.09666L12.5678 7.4771C9.66384 7.86599 7.42424 10.3533 7.42424 13.3636C7.42424 13.6151 7.43983 13.8628 7.4702 14.1061H0.742432C0.528031 14.1061 0.324102 14.0134 0.183114 13.8519C0.042125 13.6903 -0.0221553 13.4757 0.00681252 13.2633L1.12045 5.09666C1.17061 4.7288 1.4848 4.45455 1.85607 4.45455H3.71212ZM17.8182 13.3636C17.8182 15.8238 15.8238 17.8182 13.3636 17.8182C10.9035 17.8182 8.90909 15.8238 8.90909 13.3636C8.90909 10.9035 10.9035 8.90909 13.3636 8.90909C15.8238 8.90909 17.8182 10.9035 17.8182 13.3636ZM10.7652 14.1061H12.6212V15.9621H14.1061V14.1061H15.9621V12.6212H14.1061V10.7652H12.6212V12.6212H10.7652V14.1061Z" fill="white"></path>
+                                                 </g>
+                                                 <defs>
+                                                   <clipPath id="clip0_9044_6441">
+                                                     <rect width="17.8182" height="17.8182" fill="white"></rect>
+                                                   </clipPath>
+                                                 </defs>
+                                               </svg>
+                                        </button>
+                                     {% endform %}
+
+                                    </upsel-product>
+                                            {% comment %} <div class="upsel_cart-product-add">
+                                              
+                                            </div> {% endcomment %}
+                       </div>
+                       <div class="cart_drawer-upsel_content">
+                          <a href="{{ product.url }}">{{ product.title }}</a>
+                            <span>{{ product.price |  money }}</span>
+                       </div>
+                    
+                  </div>
+
+                {% endfor %}
+              </div>
+            </div>
+           </div>
+
+        </div> 
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
             <summary>

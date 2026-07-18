@@ -50,6 +50,7 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
         .then((response) => response.json())
         .catch(() => null)
         .finally(() => {
+          
           if (CartItems.pendingCartDataPromise === pendingCartDataPromise) CartItems.pendingCartDataPromise = null;
         });
 
@@ -114,6 +115,9 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
       return fetch(`${routes.cart_url}?section_id=cart-drawer`)
         .then((response) => response.text())
         .then((responseText) => {
+           requestAnimationFrame(() => {
+              upselProduct();
+            });
           const html = new DOMParser().parseFromString(responseText, 'text/html');
           const selectors = ['cart-drawer-items', '.cart-drawer__footer'];
           for (const selector of selectors) {
@@ -131,6 +135,9 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
       return fetch(`${routes.cart_url}?section_id=main-cart-items`)
         .then((response) => response.text())
         .then((responseText) => {
+           requestAnimationFrame(() => {
+              upselProduct();
+            });
           const html = new DOMParser().parseFromString(responseText, 'text/html');
           const sourceQty = html.querySelector('cart-items');
           this.innerHTML = sourceQty.innerHTML;
@@ -194,7 +201,9 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
       })
       .then((state) => {
         const parsedState = JSON.parse(state);
-
+ requestAnimationFrame(() => {
+              upselProduct();
+            });
         if (parsedState.errors) {
           this.dispatchCartErrorEvent(parsedState.errors, 'INVALID');
           linesUpdateDeferred?.reject(new Error(parsedState.errors));

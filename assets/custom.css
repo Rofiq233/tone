@@ -33,13 +33,13 @@
      font-weight: 500;
      text-transform: capitalize;
      color: rgba(var(--color-foreground));
-padding: 0;
+     padding: 0;
  }
- 
- .header__inline-menu .list-unstyled a{
-    padding: .4rem 0;
+
+ .header__inline-menu .list-unstyled a {
+     padding: .4rem 0;
  }
-   
+
  .header__menu-item:hover span {}
 
  .mega-menu__list {
@@ -185,3 +185,106 @@ padding: 0;
          gap: 40px;
      }
  }
+
+
+
+ /* upsell product css start here  */
+ .upsel-product_wrap {
+     margin-bottom: 30px;
+     position: relative;
+ }
+
+ .cart_drawer-upsel_image {
+     overflow: hidden;
+     line-height: 0;
+     position: relative;
+ }
+
+ .cart_drawer-upsel_content a {
+     margin-top: 10px;
+     margin-bottom: 10px;
+     text-decoration: none;
+     color: rgb(var(--color-foreground));
+     font-size: 16px;
+     line-height: 20px;
+     display: block;
+ }
+
+ .cart_drawer-upsel_content span {
+     font-size: 16px;
+     line-height: 20px;
+     color: rgb(var(--color-foreground));
+ }
+
+ .cart_drawer-item {
+     text-decoration: none;
+ }
+
+ .cart_drawer-upsel_content {
+     line-height: 20px;
+ }
+
+ .upsel_cart-product-add {
+     position: absolute;
+     right: 10px;
+     bottom: 10px;
+     width: 28px;
+     height: 28px;
+     border-radius: 50%;
+     background: rgb(var(--color-foreground));
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     z-index: 999;
+     cursor: pointer;
+ }
+
+ .upsel_cart-product-add button {
+     background: transparent;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border: none;
+     margin-bottom: 0;
+     cursor: pointer;
+ }
+
+.add_process_product {
+  opacity: 0.6;
+  position: relative;
+  pointer-events: none;
+}
+
+.add_process_product::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  margin-top: -11px;
+  margin-left: -11px;
+
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top-color: #000;
+  border-radius: 50%;
+
+  animation: productLoading 0.8s linear infinite;
+  z-index: 10;
+}
+
+@keyframes productLoading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.product-form__submit[disabled]{
+    opacity: 0.5;
+}
+
+
+
+
+ /* upsell product css end here  */

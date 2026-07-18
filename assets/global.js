@@ -1255,11 +1255,14 @@ customElements.define('variant-selects', VariantSelects);
 
 
 
+function upselProduct() {
+  var swiper = new Swiper('.cart_drawer-upsel', {
+    slidesPerView: 4,
+    spaceBetween: 10,
+    freeMode: true,
+  });
 
-
-
-
-
+}
 
 
 

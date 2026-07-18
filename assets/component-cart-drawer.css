@@ -17,7 +17,7 @@
 
 .drawer__inner {
   height: 100%;
-  width: 40rem;
+  width: 50rem;
   max-width: calc(100vw - 3rem);
   padding: 0 1.5rem;
   border: 0.1rem solid rgba(var(--color-foreground), 0.2);
@@ -197,11 +197,11 @@ cart-drawer-items {
   .drawer__inner {
     overflow: scroll;
   }
-}
+}   
 
 .cart-drawer .cart-item {
   display: grid;
-  grid-template: repeat(2, auto) / repeat(4, 1fr);
+  grid-template: repeat(2, 1fr);
   gap: 1rem;
   margin-bottom: 0;
 }
@@ -296,7 +296,7 @@ cart-drawer-items {
 
 .cart-drawer .cart-items .cart-item__quantity {
   padding-top: 0;
-  grid-column: 2 / 5;
+  /* grid-column: 2 / 5; */
 }
 
 @media screen and (max-width: 749px) {

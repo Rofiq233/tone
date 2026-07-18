@@ -70,6 +70,7 @@ if (!customElements.get('product-form')) {
             } else if (!this.cart) {
               this.resolveCartLinesUpdate(linesUpdateDeferred);
               window.location = window.routes.cart_url;
+
               return;
             }
 
@@ -91,8 +92,17 @@ if (!customElements.get('product-form')) {
                 'modalClosed',
                 () => {
                   setTimeout(() => {
+
+                    // CartPerformance.measure("add:paint-updated-sections", () => {
+
+                    //   this.cart.renderContents(response);
+                    // });
                     CartPerformance.measure("add:paint-updated-sections", () => {
                       this.cart.renderContents(response);
+
+                      requestAnimationFrame(() => {
+                        upselProduct();
+                      });
                     });
                   });
                 },
@@ -100,8 +110,15 @@ if (!customElements.get('product-form')) {
               );
               quickAddModal.hide(true);
             } else {
+              // CartPerformance.measure("add:paint-updated-sections", () => {
+              //   this.cart.renderContents(response);
+              // });
               CartPerformance.measure("add:paint-updated-sections", () => {
                 this.cart.renderContents(response);
+
+                requestAnimationFrame(() => {
+                  upselProduct();
+                });
               });
             }
           })
@@ -115,6 +132,7 @@ if (!customElements.get('product-form')) {
             if (this.cart && this.cart.classList.contains('is-empty')) this.cart.classList.remove('is-empty');
             if (!this.error) this.submitButton.removeAttribute('aria-disabled');
             this.querySelector('.loading__spinner').classList.add('hidden');
+
 
             CartPerformance.measureFromEvent("add:user-action", evt);
           });

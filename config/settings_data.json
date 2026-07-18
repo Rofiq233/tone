@@ -124,8 +124,15 @@
     "cart_type": "drawer",
     "show_vendor": false,
     "show_cart_note": false,
-    "cart_drawer_collection": "top-selling",
+    "product_list": [
+      "led-evergreen-urn-filler-festive-holiday-decor",
+      "learning-game-kids-memory-matching-calming-activity",
+      "heavy-duty-tarp-waterproof-camping-grommet-reinforced",
+      "external-ssd-portable-usb-mobile-storage-device",
+      "external-ssd-portable-storage-device-usb"
+    ],
     "cart_color_scheme": "scheme-2",
+    "cart_drawer_collection": "top-selling",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",

@@ -1,17 +1,17 @@
-  if (!customElements.get("custom-accordion")) {
+if (!customElements.get("custom-accordion")) {
   customElements.define(
     "custom-accordion",
     class CustomAccordion extends HTMLElement {
       constructor() {
         super();
- 
+
         this.isFaq = this.querySelector(".faq-item");
         this.isBlog = this.querySelector(".blog-category-item");
 
         if (this.isFaq) {
           this.item = this.querySelector(".faq-item");
           this.panel = this.querySelector(".faq-item-content");
-          this.trigger = this.item; 
+          this.trigger = this.item;
         }
 
         if (this.isBlog) {
@@ -97,4 +97,75 @@ window.productSwiper = new Swiper('.product__swiper', {
 });
 
 
-      
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  upselProduct();
+});
+
+
+
+
+
+if (!customElements.get("upsel-product")) {
+  customElements.define(
+    "upsel-product",
+    class CustomAccordion extends HTMLElement {
+
+      constructor() {
+        super();
+      }
+      connectedCallback() {
+        this.form = this.querySelector("form");
+        this.btn = this.form.querySelector(".product-form__submit");
+        this.btn.addEventListener("click", this.handleclick.bind(this));
+        this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+        // this.cart_image =  this.querySelector(".cart_drawer-upsel_image");
+        this.cart_image = this.closest(".cart_drawer-upsel_image");
+
+
+
+      }
+
+      async handleclick(e) {
+        e.preventDefault();
+        if (!this.form) return;
+        this.cart_image.classList.add("add_process_product");
+
+        const formData = new FormData(this.form);
+
+        if (this.cart) {
+          formData.append(
+            'sections',
+            this.cart.getSectionsToRender().map((section) => section.id)
+          );
+          formData.append('sections_url', window.location.pathname);
+        }
+        const config = {
+          method: "POST",
+          body: formData,
+          headers: {
+            "X-Requested-With": "XMLHttpRequest",
+          },
+        }
+        fetch("/cart/add.js", config)
+          .then(res => res.json())
+          .then(data => {
+
+            this.cart.renderContents(data);
+            this.cart_image.classList.remove("add_process_product");
+            requestAnimationFrame(() => {
+              upselProduct();
+            });
+          }).catch((e) => {
+            this.cart_image.classList.remove("add_process_product");
+          }).finally(() => {
+            this.cart_image.classList.remove("add_process_product");
+          })
+
+      }
+
+    }
+
+  )
+}
