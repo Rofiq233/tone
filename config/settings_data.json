@@ -124,6 +124,7 @@
     "cart_type": "drawer",
     "show_vendor": false,
     "show_cart_note": false,
+    "heading": "YOU MAY ALSO LIKE",
     "product_list": [
       "led-evergreen-urn-filler-festive-holiday-decor",
       "learning-game-kids-memory-matching-calming-activity",
@@ -131,6 +132,9 @@
       "external-ssd-portable-usb-mobile-storage-device",
       "external-ssd-portable-storage-device-usb"
     ],
+    "shipping_goal_price": 100,
+    "goal_text": "<p>Pend [amount] More To unlock <strong>FREE SHIPPING.</strong></p>",
+    "goal_success_text": "Congratulations! You're eligible for free shipping!",
     "cart_color_scheme": "scheme-2",
     "cart_drawer_collection": "top-selling",
     "sections": {

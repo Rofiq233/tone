@@ -249,42 +249,66 @@
      cursor: pointer;
  }
 
-.add_process_product {
-  opacity: 0.6;
-  position: relative;
-  pointer-events: none;
-}
+ .add_process_product {
+     opacity: 0.6;
+     position: relative;
+     pointer-events: none;
+ }
 
-.add_process_product::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 22px;
-  height: 22px;
-  margin-top: -11px;
-  margin-left: -11px;
+ .add_process_product::before {
+     content: "";
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     width: 22px;
+     height: 22px;
+     margin-top: -11px;
+     margin-left: -11px;
 
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  border-top-color: #000;
-  border-radius: 50%;
+     border: 2px solid rgba(0, 0, 0, 0.2);
+     border-top-color: #000;
+     border-radius: 50%;
 
-  animation: productLoading 0.8s linear infinite;
-  z-index: 10;
-}
+     animation: productLoading 0.8s linear infinite;
+     z-index: 10;
+ }
 
-@keyframes productLoading {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-.product-form__submit[disabled]{
-    opacity: 0.5;
-}
+ @keyframes productLoading {
+     to {
+         transform: rotate(360deg);
+     }
+ }
 
 
+ .product-form__submit[disabled] {
+     opacity: 0.5;
+ }
 
+ .progress-bar__wrapper {
+     position: relative;
+ }
+
+ .cart-shipping_goal-wrap .progress-bar__progress {
+     height: 1rem;
+     background-color: rgba(var(--color-foreground), 0.5);
+     border-radius: 100px;
+     overflow: hidden;
+     z-index: -1;
+     width: 100% !important;
+ }
+
+ .cart-shipping_goal-wrap .progress-bar__progress-inner {
+     background-color: rgba(var(--color-foreground));
+     display: block;
+     width: var(--width);
+     height: 100%;
+     border-radius: 100px;
+ }
+
+ .cart_shipping_goal-text,
+ .cart_shipping_goal-text {
+     margin-bottom: 10px;
+     text-align: center;
+ }
 
  /* upsell product css end here  */
