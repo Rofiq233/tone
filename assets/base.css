@@ -1958,6 +1958,8 @@ input[type='checkbox'] {
   flex-grow: 1;
   -webkit-appearance: none;
   appearance: none;
+  border-right: 1px solid rgba(var(--color-foreground));
+  border-left: 1px solid rgba(var(--color-foreground));
 }
 
 .quantity__button {

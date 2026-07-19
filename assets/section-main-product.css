@@ -1361,7 +1361,7 @@ a.product__text {
   border-radius: 5px !important;
   overflow: hidden;
   transition: 0.5s;
-   border: 1.5px solid transparent !important;
+  border: 1.5px solid transparent !important;
 }
 
 .variant_option_color-wrap label:hover img {
@@ -1381,12 +1381,136 @@ a.product__text {
 }
 
 
-.form__label{
+.form__label {
   font-size: 1.8rem;
 }
-.custom_product_price{
+
+.custom_product_price {
   margin-left: 1px;
 }
+
+
+.sale_offer_text-wrap p {
+  border: 1.5px solid var(--occusion);
+  border-radius: 8px;
+  padding: 10px 15px;
+  display: inline-block;
+  font-size: 14px;
+  text-align: left;
+}
+.sale_offer_text-wrap{
+  margin: 0;
+}
+
+.sale_offer_text-wrap strong {
+  color: var(--occusion);
+}
+
+.sale_offer_text-wrap span {
+  color: var(--buy-product-color);
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  position: relative;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.sale_offer_text-wrap span::before {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  content: '';
+  background-color: var(--buy-product-color);
+}
+
+.payment_product{
+  justify-content: center;
+  margin: 0;
+}
+.payment_product .list-payment{
+  justify-content: center;
+}
+
+.sale_offer_text-wrap span::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  background: var(--buy-product-color);
+
+  animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+
+.product-ships-wrap{
+  display: flex;
+  justify-content: space-between;
+    background: #f5f5f5;
+    border-radius: 6px;
+    padding: 7px 12px;
+    margin: 10px 0;
+    align-items: center;
+    margin-top: 20px;
+    
+}
+.product-ships-wrap p{
+  margin: 0;
+  font-size: 13px;
+  position: relative;
+  padding-left: 20px;
+    
+}
+.product-ships-wrap p::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  background: #299709;
+
+  animation: dotPulse 1.5s ease-in-out infinite;
+  z-index: 99;
+    
+}
+.product-ships-right span{
+  font-size: 13p;
+}
+
+
+@keyframes dotPulse{
+  0%{
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+
+  50%{
+    transform: translateY(-50%) scale(1.4);
+    opacity: .6;
+  }
+
+  100%{
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+
 
 
 @media(min-width:992px) {

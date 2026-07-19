@@ -16,21 +16,21 @@
           "type": "title",
           "settings": {}
         },
-        "sub_title_h8xE7T": {
-          "type": "Sub_title",
-          "disabled": true,
-          "settings": {
-            "title": "{{ product.metafields.custom.sub_title.value }}"
-          }
-        },
         "price": {
           "type": "price",
           "settings": {}
         },
+        "offer_zHpqYa": {
+          "type": "Offer",
+          "settings": {
+            "offer_text": "<em>*Offer ends on </em><em><strong>Sunday 19 July</strong></em>",
+            "offer_color": "#ca2424"
+          }
+        },
         "list_style_Kk4pP9": {
           "type": "list_style",
           "settings": {
-            "list_style": "<ul><li>4 Day Perfect Fit Guarantee</li><li>Free shipping on orders over $100</li><li>U.S based customer service</li></ul>"
+            "list_style": "<ul><li>4 Day Perfect Fit Guarantee</li><li>Free shipping on orders over $100</li></ul>"
           }
         },
         "variant_picker": {
@@ -40,22 +40,17 @@
             "swatch_shape": "circle"
           }
         },
-        "guarantee_zX7PT7": {
-          "type": "Guarantee",
-          "disabled": true,
-          "settings": {
-            "img": "shopify://shop_images/Vector.svg",
-            "title": "14 Day Perfect Fit Guarantee",
-            "guarantee_text": "We offer easy returns and exchanges if you're unhappy on your size"
-          }
+        "quantity_selector_K8X6j9": {
+          "type": "quantity_selector",
+          "settings": {}
         },
-        "inventory_k8ryfp": {
-          "type": "inventory",
-          "disabled": true,
+        "sale_offer_memETi": {
+          "type": "sale_offer",
           "settings": {
-            "text_style": "body",
-            "inventory_threshold": 10,
-            "show_inventory_quantity": true
+            "occusion_text": "<strong>SUMMER SALE:</strong> <em>Up to 50% off on selected items!</em>",
+            "occusion_color": "#e12803",
+            "buy_product_text": "Buy 2 or more products, get 10% off",
+            "product_color": "#299709"
           }
         },
         "buy_buttons": {
@@ -65,6 +60,20 @@
             "show_gift_card_recipient": false
           }
         },
+        "payment_d9NYiG": {
+          "type": "payment",
+          "settings": {
+            "payment_enable": true
+          }
+        },
+        "ships_zFLiJE": {
+          "type": "ships",
+          "settings": {
+            "left_text": "Ships before <strong>Mon, 20 July</strong>",
+            "img": "shopify://shop_images/Flag_of_Australia__28converted_29.png",
+            "right_text": "<strong>Fast shipping</strong>"
+          }
+        },
         "description_Jjtp9r": {
           "type": "description",
           "settings": {}
@@ -72,13 +81,15 @@
       },
       "block_order": [
         "title",
-        "sub_title_h8xE7T",
         "price",
+        "offer_zHpqYa",
         "list_style_Kk4pP9",
         "variant_picker",
-        "guarantee_zX7PT7",
-        "inventory_k8ryfp",
+        "quantity_selector_K8X6j9",
+        "sale_offer_memETi",
         "buy_buttons",
+        "payment_d9NYiG",
+        "ships_zFLiJE",
         "description_Jjtp9r"
       ],
       "settings": {

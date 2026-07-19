@@ -93,8 +93,47 @@
 
             {%- for block in section.blocks -%}
               {%- case block.type -%}
+              {%- when 'ships' -%}
+                <div class="product-ships-wrap">
+                
+                  <div class="product-ships-left">
+                    <p>{{ block.settings.left_text }}</p>
+                  </div>
+                  <div class="product-ships-right">
+                    {% render 'image',
+                                            image: block.settings.img,
+                                            sizes: '20px',
+                                              width: 20,
+                                            widths: '20,15,10',
+                                            placeholder: 'detailed-apparel-1'
+                                            %}
+                    <span>{{ block.settings.right_text }}</span>
+                  </div>
+                </div>
+              {%  when 'payment' %} 
+                    {%- if block.settings.payment_enable -%}
+                      <div class="footer__payment payment_product">
+                        <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+                        <ul class="list list-payment" role="list">
+                          {%- for type in shop.enabled_payment_types -%}
+                            <li class="list-payment__item">
+                              {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      </div>
+                   {%- endif -%}
                 {%- when '@app' -%}
                   {% render block %}
+                  {%  when 'sale_offer' %} 
+                    <div class="sale_offer_text-wrap" style="--occusion:{{ block.settings.occusion_color }}; --buy-product-color:{{ block.settings.product_color }}">
+                      <p>{{ block.settings.occusion_text }}</p>
+                      <span>{{ block.settings.buy_product_text }}</span>
+                    </div>
+                  {%  when 'Offer' %} 
+                    <div class="offer_text-wrap">
+                      <p style="color:{{ block.settings.offer_color }}">{{ block.settings.offer_text }}</p>
+                    </div>
                   {%  when "Guarantee" %} 
                     <div class="guarantee_wrap">
                       <div class="guarantee_image">
@@ -892,6 +931,82 @@
           "type": "richtext",
           "id": "list_style",
           "label": "List text"
+        }
+      ]
+    },
+    {
+      "type": "payment",
+      "name":"payment",
+       "settings": [
+        {
+          "type": "checkbox",
+          "id": "payment_enable",
+          "label": "Enable"
+        }
+       ],
+       "limit": 1
+    },
+    {
+      "type": "ships",
+      "name":"Ships info",
+       "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "left_text",
+          "label": "Left text"
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "right_text",
+          "label": "Right text"
+        },
+       ],
+       "limit": 1
+    },
+    {
+      "type": "sale_offer",
+      "name":"Sale Offer",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "occusion_text",
+          "label": "Occusion text"
+        },
+        {
+          "type": "color",
+          "id": "occusion_color",
+          "label": "Color"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "buy_product_text",
+          "label": "buy products"
+        },
+        {
+          "type": "color",
+          "id": "product_color",
+          "label": "Color"
+        }
+      ]
+    },
+    {
+      "type": "Offer",
+      "name":"Offer",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "offer_text",
+          "label": "Offer text"
+        },
+        {
+          "type": "color",
+          "id": "offer_color",
+          "label": "Offer color"
         }
       ]
     },
