@@ -48,8 +48,9 @@
 .facet-filters__label {
   display: block;
   color: rgba(var(--color-foreground), 0.85);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   margin: 0 2rem 0 0;
+  font-weight: 700;
 }
 
 .facet-filters__summary {
@@ -107,11 +108,11 @@
   background-color: transparent;
   border: 0;
   border-radius: 0;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   height: auto;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
   margin: 0;
-  padding-left: 0;
+  padding-left: 1.75rem;
   padding-right: 1.75rem;
 }
 
@@ -159,6 +160,7 @@
 .facets {
   display: block;
   grid-column-start: span 2;
+  margin-bottom: 20px;
 }
 
 .facets__form {
@@ -193,10 +195,11 @@
 }
 
 .facets__summary {
-  color: rgba(var(--color-foreground), 0.75);
-  font-size: 1.4rem;
+  color: rgba(var(--color-foreground));
+  font-size: 1.6rem;
   padding: 0 1.75rem 0 0;
   margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
 .facets__summary .svg-wrapper {
@@ -441,11 +444,17 @@
   cursor: pointer;
 }
 
+.card__heading{
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 20px;
+}
+
 .facet-checkbox {
   padding: 1rem 2rem 1rem 0;
   flex-grow: 1;
   position: relative;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   display: flex;
   word-break: break-word;
 }
@@ -1103,9 +1112,10 @@ input.mobile-facets__checkbox {
 }
 
 .product-count__text {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
   margin: 0;
+  font-weight: 700;
 }
 
 #ProductCountDesktop.loading,

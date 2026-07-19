@@ -1,33 +1,4 @@
-{% comment %}
-  Renders a header search modal. Should be used with 'header.liquid'
-
-  Accepts:
-  - input_id: {String} Id for the search input element (required)
-
-  Usage:
-  {% render 'header-search', input_id: 'My-Id'%}
-{% endcomment %}
-
-<details-modal class="header__search">
-  <details>
-    <summary
-      class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle"
-      aria-haspopup="dialog"
-      aria-label="{{ 'general.search.search' | t }}"
-    >
-      <span>
-        <span class="svg-wrapper">
-          {% comment %} {{- 'icon-search.svg' | inline_asset_content -}} {% endcomment %}
-           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M28 14C28 21.732 21.732 28 14 28C6.26802 28 0 21.732 0 14C0 6.26802 6.26802 0 14 0C21.732 0 28 6.26802 28 14ZM13 9.25C10.9289 9.25 9.25 10.9289 9.25 13C9.25 15.0711 10.9289 16.75 13 16.75C15.0711 16.75 16.75 15.0711 16.75 13C16.75 10.9289 15.0711 9.25 13 9.25ZM6.75 13C6.75 9.54822 9.54822 6.75 13 6.75C16.4518 6.75 19.25 9.54822 19.25 13C19.25 14.2739 18.8689 15.4587 18.2145 16.4467L20.8838 19.1161C21.372 19.6043 21.372 20.3958 20.8838 20.8838C20.3958 21.372 19.6043 21.372 19.1161 20.8838L16.4467 18.2145C15.4587 18.8689 14.2739 19.25 13 19.25C9.54822 19.25 6.75 16.4518 6.75 13Z" fill="black"></path>
-            </svg>
-        </span>
-        <span class="svg-wrapper header__icon-close">
-          {{- 'icon-close.svg' | inline_asset_content -}}
-        </span>
-      </span>
-    </summary>
-    <div
+ <div
       class="search-modal modal__content "
       role="dialog"
       aria-modal="true"
@@ -107,5 +78,3 @@
         </button>
       </div>
     </div>
-  </details>
-</details-modal>

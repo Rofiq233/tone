@@ -337,6 +337,7 @@
     {%- endif -%}
 
     {% sections 'header-group' %}
+    {% comment %} {% section 'search-modal' %} {% endcomment %}
     
     <main
       id="MainContent"
@@ -399,8 +400,9 @@
         countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
       };
     </script>
-
+ {% comment %} {%- render 'search-side'-%}  {% endcomment %}
     {%- if settings.predictive_search_enabled -%}
+      
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script> 
     {%- endif -%}
 
