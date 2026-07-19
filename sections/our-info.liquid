@@ -17,12 +17,12 @@
 
     <div class="trust__inner color-{{ section.settings.color_schema }} gradient section-{{ section.id }}-padding">
         <div class="page-width">
-            <div class="trust__wrapper">
+            <div class="trust__wrapper {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                 <div class="trust__items">
                     {% for block in section.blocks %}
                         {%- assign block_settings = block.settings -%}
 
-                        <div class="trust__item">
+                        <div class="trust__item {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                             <div class="trust__image">
                                 {% render 'image',
                                             image: block.settings.img,

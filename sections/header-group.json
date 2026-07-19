@@ -44,7 +44,7 @@
           "settings": {
             "image": "shopify://shop_images/the-riviera-setoracle-gifts-5495437.png",
             "title": "Bestsellers",
-            "url": "shopify://collections/chino-shorts"
+            "url": "shopify://collections/all"
           }
         },
         "mega_menu_image_jgm3dY": {
@@ -52,7 +52,7 @@
           "settings": {
             "image": "shopify://shop_images/the-riviera-setoracle-gifts-8848279.png",
             "title": "New Arrivals",
-            "url": ""
+            "url": "shopify://collections/all"
           }
         }
       },

@@ -35,7 +35,7 @@
              <div class="hero_slider-items">
               {% for block in section.blocks %}
                 {%- assign block_settings = block.settings -%}
-                <a href="" class="hero_slider-item">
+                <a href="{{ block_settings.url }}" class="hero_slider-item">
                   <div class="hero_slider-item-img">
                       {{ block_settings.img
                     | image_url: width: 300
