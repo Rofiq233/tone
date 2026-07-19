@@ -1,0 +1,148 @@
+{{ 'our-info.css' |  asset_url |  stylesheet_tag }}
+    {%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.mobile_padding_top}}px;
+    padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+
+
+    <div class="trust__inner color-{{ section.settings.color_schema }} gradient section-{{ section.id }}-padding">
+        <div class="page-width">
+            <div class="trust__wrapper">
+                <div class="trust__items">
+                    {% for block in section.blocks %}
+                        {%- assign block_settings = block.settings -%}
+
+                        <div class="trust__item">
+                            <div class="trust__image">
+                                {% render 'image',
+                                            image: block.settings.img,
+                                            sizes: '30px',
+                                              width: 30,
+                                            widths: '30,27,20,15,10',
+                                            placeholder: 'detailed-apparel-1'
+                                            %}
+                            </div>
+                            <div class="trust__content">
+                                <h3>{{ block_settings.title }}</h3>
+                                <p>{{ block_settings.text }}</p>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+{% schema %}
+  {
+    "name": "Our info",
+    "tag": "section",
+    "class": "trust",
+    "settings": [
+     {
+      "type": "color_scheme",
+      "id": "color_schema",
+      "label": "Color schema"
+    },
+   
+   
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+            "type": "image_picker",
+            "id":"img",
+            "label": "Select image"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "text",
+            "label": "Text"
+        }
+        
+      ]
+    }
+    
+  ],
+    "presets": [
+      {
+        "name": "Our info",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
